@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="App" >
+<head>
+    <title></title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel='stylesheet' href='stylesheets/bootstrap.css'/>
+    <link rel='stylesheet' href='stylesheets/screen.css'/>
+
+     <!--iPad (portrait) SPLASHSCREEN-->
+    <link href="apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
+     <!--iPad (landscape) SPLASHSCREEN-->
+    <link href="apple-touch-startup-image-748x1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
+</head>
+<body>
+
+<div class="app" data-ng-controller="AppCtrl" swipe-nav>
+    <section class="navigation" ng-class="{active:dataModel.toggleViewOpen}">
+        <header>
+            <div class="inner">
+                <h1>Navigation 3</h1>
+            </div>
+        </header>
+        <div class="content">
+            <!--<div class="nav-wrap" ng-include="'partials/pri-nav.html'"></div>-->
+            <div ui-view="nav" class="content" data-ng-animate="'slide-next'"></div>
+        </div>
+    </section>
+    <section class="main" ng-class="{minimized:dataModel.toggleViewOpen}">
+        <header>
+            <div class="inner">
+                <button type="button" ng-click="dataModel.toggleViewOpen=!dataModel.toggleViewOpen" class="btn btn-inverse toggle-view-btn pull-left" ng-class="{active:dataModel.toggleViewOpen}">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1>Main View</h1>
+            </div>
+        </header>
+        <div ui-view="page" class="content" data-ng-animate="'slide-next'"></div>
+    </section>
+</div>
+
+
+
+
+<script src="libs/angular.min.js"></script>
+<script src="libs/jquery-1.9.1.min.js"></script>
+<script src="libs/angular-mobile.js"></script>
+<script src="libs/angular-ui-router.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/directives.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+
+.nav-wrap{
+  height: 100%;
+}
+
+.nav{
+
+  overflow: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  margin-bottom: 0;
+  margin-top: 40px;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+  overflow: scroll;
+  overflow-x: hidden;
+
+
+  ul{
+    list-style: none;
+    margin: 0;
+  }
+
+  li{
+    cursor: hand; cursor: pointer;
+  }
+
+  .divider{
+    border-top: 1px solid #333;
+  }
+
+  a{
+    display: block;
+    color: $asbestos;
+    padding: 15px 25px;
+
+
+    &:hover{
+      background: rgba($wetasphalt,.02);
+    }
+
+    &.active{
+      background: $wetasphalt;
+      color: #ffffff;
+
+
+      @include text-shadow(#000 0 1px 0);
+    }
+  }
+
+}
+
+
+.pri-nav{
+
+  background: $clouds;
+
+  width: $pri-nav-width;
+
+
+  .brand{
+    display: none;
+  }
+
+  .divider {
+    border-top: 0;
+  }
+
+
+  ul{
+    margin: 0;
+    margin-top: 20px;
+    //height: 710px;
+  }
+
+  li{
+
+
+
+    @include text-shadow(#ffffff 0 1px 0);
+    background: #eee;
+    font-size: 15px;
+    list-style: none;
+    border-top: 1px solid rgba(#fff, 1);
+    border-bottom: 1px solid #ddd;
+
+    a{
+      color: $midnightblue;
+      font-size: 15px;
+    }
+  }
+
+}

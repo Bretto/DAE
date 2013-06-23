@@ -1,0 +1,738 @@
+<div class="page" page id="page2">
+<div class="title">
+    <h1>Frameworks</h1>
+</div>
+
+<div class="content">
+
+<section>
+    <h3>Objective</h3>
+
+    <p>Presenting a wide list of alternatives to develop mobile applications to open the discussions.</p>
+    <h4>Questions</h4>
+    <ul>
+        <li>What backend should we use to integrate ?</li>
+        <li>Is it customisable and extendable ?</li>
+        <li>Is it fast to develop ?</li>
+        <li>Can I create a nice development work flow ?</li>
+        <li>Will we find the needed components or will we need to develop them or wrap existing components?</li>
+        <li>Life time expectancy of the Framework (pérennité, subvention, rivals)?</li>
+        <li>Documentation ?</li>
+        <li>Momentum, community, echosystem ?</li>
+        <li>Road Map ?</li>
+        <li>Bug Tracking, feedback ?</li>
+    </ul>
+
+</section>
+
+<section id="adfmobile">
+    <img class="pull-right" src="img/oracle-mobile.jpg" width="180px">
+
+    <h2>ADF Mobile</h2>
+    <a href="http://www.oracle.com/technetwork/developer-tools/adf-mobile/overview/index.html" target="_blank">http://www.oracle.com</a>
+
+    <blockquote><p> Oracle ADF Mobile enables developers to build and extend enterprise applications for iOS and Android
+        from a
+        single code base. Based on a hybrid mobile architecture, ADF Mobile supports access to native device
+        services, enables offline applications and protects enterprise investments from future technology
+        shifts.</p>
+    </blockquote>
+
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Backed by Oracle</li>
+        <li>Full Integrated Solution from development to deployment to multi-platform</li>
+    </ul>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Language-->
+            <td>Java</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <h3>Setup</h3>
+
+    <h4>Startup & Config</h4>
+    <ul>
+        <li><a href="http://www.youtube.com/user/jernejkase?feature=watch">http://www.youtube.com/user/jernejkase?feature=watch</a>
+        </li>
+    </ul>
+
+    <p>On the VM C: is full, and your Android Virtual Device (AVD) cannot launch. Solution: copy C:\Documents and
+        Settings\brett.coffin\.android\avd to E: and change in C:\Documents and Settings\brett.coffin\.android\avd the
+        path in the .ini to point to the AVD on E:</p>
+
+    <p>Error: "Failed to locate the Google Cloud Messaging" Solution: <a
+            href="https://blogs.oracle.com/mobile/entry/how_to_solve_failed_to" target="_blank">https://blogs.oracle.com/mobile/entry/how_to_solve_failed_to</a>
+    </p>
+
+    <p>Error: "Cannot find program ... aapt" Solution: <a
+            href="http://use-the-adf.blogspot.com/2013/05/jdeveloper-and-android-sdk.html" target="_blank">http://use-the-adf.blogspot.com/2013/05/jdeveloper-and-android-sdk.html</a>
+    </p>
+
+    <p>Install Driver on Windows 7 <a href="http://www.samsung.com/sg/support/model/GT-P3100TSEXSP-downloads" target="_blank">http://www.samsung.com/sg/support/model/GT-P3100TSEXSP-downloads</a></p>
+
+    <h4>Web Service SOAP</h4>
+    <ul>
+        <li>Start the WS in JDev: Run/ Start Server Instance </li>
+        <li>Create New Application: Custom App</li>
+        <li>Select Features: ADF Business Components</li>
+        <li>Select project module: Add ADF Components</li>
+        <li>Create a DB connection
+            <ul>
+                <li>User:axidemo</li>
+                <li>Psd:axidemo</li>
+                <li>Host Name: srv-db-axidemo.dev.appli-gestion.nc</li>
+                <li>Port: 42100</li>
+                <li>SID: DEVLIN</li>
+            </ul>
+        </li>
+        <li>Select Application Module > create Service Interface</li>
+        <li>Select Application Module > Configuration Edit Service > Connection Type: JDBC URL</li>
+        <li>Select Project and Create Deployment Profile</li>
+        <ul>
+            <li>Business Component Service Interface</li>
+        </ul>
+        <li>Select Application and Create Deployment Profile</li>
+        <li>Get Deployment URL from Deployment log add Application Module Config SI endpoint</li>
+        <li>Use SoapUI to test WS</li>
+        <li>Create new project point to endpoint add '?WSDL'</li>
+
+
+    </ul>
+
+
+
+    <h4>Start WS</h4>
+    <ul>
+        <li>Start WS: Run/Start Web server</li>
+        <li>Deploy Application: Select App: Deploy</li>
+        <li>Error TimeZone: Project/ Properties/ Run Debug Profile/ Virutal Machine: server Java Options:-Duser.timezone="+06:00"</li>
+    </ul>
+
+    <h4>Deploy</h4>
+    <ul>
+        <li>Click rebuild btn (2 green arrow)</li>
+        <li>Compile the project: Select Project/Deploy </li>
+        <li>Export to server: Select App Deploy</li>
+    </ul>
+
+    <h4>Create Custom Method</h4>
+    <ul>
+        <li>Click rebuild btn (2 green arrow)</li>
+        <li>Compile the project: Select Project/Deploy </li>
+        <li>Export to server: Select App Deploy</li>
+    </ul>
+
+
+</section>
+
+<section id="xamarin">
+
+    <img class="pull-right" src="img/xamarin.jpg" width="120">
+
+    <h2>Xamarin</h2>
+    <a href="http://xamarin.com" target="_blank">http://xamarin.com</a>
+
+    <blockquote><p> Create iOS, Android, Mac
+        and Windows apps in C#.
+        Join our community of 324,169 developers.</p>
+    </blockquote>
+
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Reuse the .Net Libs</li>
+        <li>Native performance</li>
+        <li>Integrated with Rich D&D interfaces</li>
+    </ul>
+
+
+    <h4>Resourses</h4>
+    <ul>
+        <li><a href="http://xamarin.com/monoforandroid" target="_blank">http://xamarin.com/monoforandroid</a></li>
+        <li><a href="http://xamarin.com/ios" target="_blank">http://xamarin.com/ios</a></li>
+        <li><a href="http://blog.xamarin.com/xamarin-designer-for-android-available-for-visual-studio-and-monodevelop/"
+               target="_blank">Xamarin Designer</a>
+        </li>
+        <li><a href="http://xamarin.com/products" target="_blank">http://xamarin.com/products</a></li>
+    </ul>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-remove"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Language-->
+            <td>C#</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="appcelerator">
+
+    <img class="pull-right" src="img/appcelerator.jpeg" width="220">
+
+    <h2>Appcelerator</h2>
+    <a href="http://www.appcelerator.com/" target="_blank">http://appcelerator.com</a>
+
+    <blockquote><p> Appcelerator offers the only platform built for a mobile first world
+        Revolutionary thinking leads to revolutionary results.</p>
+    </blockquote>
+
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Integrated Analytics Dashboard</li>
+        <li>Integrated Market Place</li>
+    </ul>
+
+
+    <h4>Resources</h4>
+    <ul>
+        <li><a href="http://www.appcelerator.com/platform/demo/" target="_blank">http://www.appcelerator.com/platform/demo/</a>
+        </li>
+        <li><a href="http://www.appcelerator.com/platform/titanium-platform/" target="_blank">http://www.appcelerator.com/platform/titanium-platform/</a>
+        </li>
+    </ul>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-remove"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Language-->
+            <td>Javascript</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="senchatouch">
+    <img class="pull-right" src="img/sencha-large.png" width="180">
+
+    <h2>Sencha Touch</h2>
+    <a href="http://www.sencha.com/products/touch/" target="_blank">http://www.sencha.com</a>
+
+    <blockquote><p> Sencha Touch, a high-performance HTML5 mobile application framework, is the cornerstone of the
+        Sencha
+        HTML5
+        platform. Built for enabling world-class user experiences, Sencha Touch is the only framework that enables
+        developers to build powerful apps that work on iOS, Android, BlackBerry, Windows Phone, and more.</p>
+    </blockquote>
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Backed by Sencha</li>
+        <li>Use it's own syntax (base on JSON) to write components and application</li>
+    </ul>
+
+
+    <h4>Extention</h4>
+    <ul>
+        <li><a href="https://market.sencha.com/extensions/json-rpc-client-and-server-for-sencha-touch" target="_blank">JSON-RPC
+            client
+            and server for Sencha Touch</a></li>
+        <li><a href="https://market.sencha.com/extensions/sencha-touch-odata-connector-for-sap" target="_blank">Sencha
+            Touch OData
+            Connector for SAP</a></li>
+        <li><a href="https://market.sencha.com/extensions/ext-ux-data-proxy-websocket" target="_blank">Ext.ux.data.proxy.WebSocket</a>
+        </li>
+        <li><a href="https://market.sencha.com/" target="_blank">Market Sencha</a></li>
+    </ul>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-remove"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Language-->
+            <td>Custom JSON</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="icenium">
+    <img class="pull-right" src="img/icenium-logo.png" width="200">
+
+    <h2>Icenium</h2>
+    <a href="http://www.icenium.com" target="_blank">http://www.icenium.com</a>
+
+    <blockquote><p> Icenium enables you to use your skills in HTML, CSS and JavaScript to develop, test, and publish
+        applications
+        that run natively on the Apple iOS and Google Android mobile platforms by combining the convenience of a local
+        coding environment with cloud-based compilation, data storage, and publishing.</p>
+    </blockquote>
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Backed by Telerik</li>
+        <li>Use Html5 to write components and application</li>
+        <li>Rich Components List by KendoUI</li>
+        <li>User Friendly Interface</li>
+    </ul>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Language-->
+            <td>HTML5</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="kendoui">
+    <img class="pull-right" src="img/kendo-logo.png">
+
+    <h2>KendoUI Mobile</h2>
+    <a href="http://www.kendoui.com/mobile.aspx" target="_blank">http://www.kendoui.com/mobile.aspx</a>
+
+    <blockquote><p>Mobile apps that run everywhere with HTML5 and JavaScript
+        Build apps that look and feel native to end-users on: (NEW!) WinPhone8, iOS, Android and BlackBerry. Target
+        multiple phone and tablet platforms with a single UI codebase, using only HTML5 and JavaScript.</p>
+    </blockquote>
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Backed by Telerik</li>
+        <li>Use Html5 to write components and application</li>
+    </ul>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-remove"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-remove"/></td>
+
+            <!--Language-->
+            <td>HTML5, Java</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="dojo">
+    <img class="pull-right" src="img/dojo.jpeg" width="130">
+
+    <h2>Dojo Mobile</h2>
+    <a href="http://dojotoolkit.org/features/mobile" target="_blank">http://dojotoolkit.org/features/mobile</a>
+
+    <blockquote><p> Dojo Mobile is a world class HTML5 mobile JavaScript framework that enables rapid development of
+        mobile
+        web
+        applications with a native look and feel on modern webkit-enabled mobile devices such as iPhone, iPod Touch,
+        iPad, Android and RIM smartphones and tablets.</p>
+    </blockquote>
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Backed by Dojo Foundation</li>
+        <li>Use Html5 to write components and application</li>
+    </ul>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-remove"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-remove"/></td>
+
+            <!--Language-->
+            <td>HTML5</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="angular">
+
+    <img class="pull-right" src="img/AngularJS-large.png" width="200">
+
+    <h2>Angular JS</h2>
+    <a href="http://angularjs.com" target="_blank">http://angularjs.com</a>
+
+    <blockquote><p> HTML is great for declaring static documents, but it falters when we try to use it for declaring
+        dynamic
+        views in web-applications. AngularJS lets you extend HTML vocabulary for your application. The resulting
+        environment is extraordinarily expressive, readable, and quick to develop. </p>
+    </blockquote>
+
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Backed by Google</li>
+        <li>New paradigm to develop application using native Html (write less do more!)</li>
+    </ul>
+
+
+    <h4>Extention</h4>
+    <ul>
+        <li><a href="http://ngmodules.org/" target="_blank">http://ngmodules.org/</a></li>
+        <li><a href="http://angular-ui.github.io/" target="_blank">http://angular-ui.github.io/</a></li>
+        <li><a href="http://angular-ui.github.io/bootstrap/" target="_blank">http://angular-ui.github.io/bootstrap/</a>
+        </li>
+        <li><a href="http://angular-ui.github.io/ng-grid/" target="_blank">http://angular-ui.github.io/ng-grid/</a></li>
+        <li><a href="https://github.com/jmcunningham/AngularJS-Learning" target="_blank">AngularJS Learning</a></li>
+    </ul>
+
+
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-remove"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-remove"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-remove"/></td>
+
+            <!--Language-->
+            <td>HTML5</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="knockout">
+    <img class="pull-right" src="img/ko-logo.png" width="200">
+
+    <h2>Knockout</h2>
+    <a href="http://knockoutjs.com/" target="_blank">http://knockoutjs.com</a>
+
+    <blockquote><p>Simplify dynamic JavaScript UIs by applying the Model-View-View Model (MVVM) </p></blockquote>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-remove"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-remove"/></td>
+
+            <!--Language-->
+            <td>HTML5</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="yui">
+    <img class="pull-right" src="img/yui-logo.png">
+
+    <h2>YUI</h2>
+    <a href="http://yuilibrary.com/" target="_blank">http://yuilibrary.com/</a>
+
+    <blockquote><p> YUI is a free, open source JavaScript and CSS library for building richly interactive web
+        applications.
+        YUI's lightweight core and modular architecture make it scalable, fast, and robust. Built by frontend engineers
+        at Yahoo!, YUI powers the most popular websites in the world.</p>
+    </blockquote>
+
+    <h4>Notes</h4>
+    <ul>
+        <li>Backed by Yahoo</li>
+        <li>Use Html5 to write components and application</li>
+    </ul>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Frontend</th>
+            <th>Backend</th>
+            <th>D&D</th>
+            <th>Component Library</th>
+            <th>Deployment</th>
+            <th>Language</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        <tr>
+            <!--Frontend-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Backend-->
+            <td><i class="icon-remove"/></td>
+
+            <!--D&D-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Comp Lib-->
+            <td><i class="icon-ok"/></td>
+
+            <!--Deployment-->
+            <td><i class="icon-remove"/></td>
+
+            <!--Language-->
+            <td>HTML5</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</section>
+
+<section id="underdogs">
+    <h3>Underdogs</h3>
+
+    <ul>
+        <li><a href="http://jquerymobile.com/" target="_blank">JQuery Mobile</a></li>
+        <li><a href="http://backbonejs.org" target="_blank">Backbone</a></li>
+        <li><a href="http://emberjs.com" target="_blank">Ember</a></li>
+    </ul>
+</section>
+
+</div>
+</div>

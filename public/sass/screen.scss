@@ -1,0 +1,91 @@
+@import "base";
+@import "page";
+@import "pri-nav";
+
+
+
+.app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+}
+
+
+
+.navigation {
+
+  background: #eee;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+
+  width: $pri-nav-width;
+  //z-index: 10;
+  
+  .content{
+    height: 100%;
+  }
+
+  @include respond-to(landscape) {
+
+  }
+
+  @include respond-to(portrait) {
+
+    &.active{
+
+    }
+  }
+
+  @include topbar;
+
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.main {
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  @include box-shadow(0 0 10px 5px rgba(#000,.2));
+
+  @include transition(-webkit-transform cubic-bezier(0.250, 0.460, 0.450, 0.940) $animTime);
+
+
+  >.content{
+    background: #fff;
+    height: 100%;
+    width: 100%;
+  }
+
+
+  @include respond-to(landscape) {
+
+    &.minimized{
+      -webkit-transform: translate3d($pri-nav-width,0,0);
+    }
+  }
+
+  @include respond-to(portrait) {
+
+    &.minimized{
+      -webkit-transform: translate3d($pri-nav-width,0,0);
+    }
+
+  }
+
+  @include topbar;
+}
+
+.noanimate {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+

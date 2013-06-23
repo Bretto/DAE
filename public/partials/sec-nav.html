@@ -1,0 +1,6 @@
+<div class="nav sec-nav" ng-controller="SecondaryNavCtrl">
+    <img alt="" src="img/logdtsi.jpg">
+    <ul>
+        <li data-ng-repeat="section in dataModel.sideNav" data-ng-click="onClick(section)"><a><i class="icon-chevron-right"></i>{{section.title}}</a></li>
+    </ul>
+</div>

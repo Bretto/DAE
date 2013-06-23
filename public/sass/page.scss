@@ -1,0 +1,162 @@
+
+
+
+.page{
+
+  //background: #fff;
+
+  width: 100%;
+  margin-top: $title-bar-height;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+  display: block;
+
+  overflow: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+
+
+  >.inner{
+    padding: 20px;
+  }
+
+
+
+
+  .title {
+    height: 70px;
+    border-bottom: 1px solid #ddd;
+
+
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  .content {
+    padding: 25px;
+
+
+
+    img{
+      margin-right: 100px;
+    }
+  }
+
+  section{
+    margin-bottom: 50px;
+    padding-top: 25px;
+  }
+
+  .group {
+
+    padding: 5px 25px 20px;
+    @include border-radius(5px);
+
+  }
+
+  .model {
+    background-color: rgba($sunflower, .1);
+    border: rgba($sunflower, .2) solid 1px;
+    h2 {
+      color: rgba($orange, .5);
+    }
+    h3, h4 {
+      color: $orange;
+    }
+  }
+
+  .view {
+    background-color: rgba($peterriver, .1);
+    border: rgba($peterriver, .2) solid 1px;
+    h2 {
+      color: rgba($belizehole, .5);
+    }
+    h3, h4 {
+      color: $belizehole;
+    }
+  }
+
+  .controller {
+    background-color: rgba($turquoise, .1);
+    border: rgba($turquoise, .2) solid 1px;
+    h2 {
+      color: rgba($greensea, .5);
+    }
+    h3, h4 {
+      color: $greensea;
+    }
+  }
+
+  .me {
+    padding: 20px;
+    @include border-radius(5px);
+    background: rgba($turquoise, .1);
+    color: $greensea;
+  }
+
+  .todo{
+    padding: 20px;
+    @include border-radius(5px);
+    background: rgba($alizarin, .1);
+    color: $pomegranate;
+  }
+
+  h1 {
+    margin: 0;
+    padding: 12px 25px;
+    color: #000000;
+  }
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  h2, h3, h4 {
+    color: #000;
+  }
+
+  p, li {
+    color: #777;
+  }
+
+  .breath{
+    margin: 30px 0;
+  }
+
+  ul {
+    a {
+      margin-bottom: 0;
+    }
+  }
+
+  table {
+    td, th {
+      text-align: center;
+    }
+  }
+
+  .possi {
+
+    .text-left {
+      text-align: left;
+    }
+
+    a {
+      margin-bottom: 0;
+      display: inline;
+    }
+  }
+
+  blockquote {
+    border-color: $peterriver;
+    margin: 30px 0;
+  }
+}
+
+

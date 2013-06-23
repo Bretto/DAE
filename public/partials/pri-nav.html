@@ -1,0 +1,15 @@
+<div class="nav pri-nav" data-ng-controller="PrimaryNavCtrl">
+<ul>
+    <li class="brand"><a href="#requirement"><span>Mobile
+    Platform</span><br>Research</a></li>
+    <li><a ng-class="dataModel.isPriNavActive('requirement')" class="divider" href="#nav/requirement/page/requirement">Requirements</a></li>
+    <li><a ng-class="dataModel.isPriNavActive('framework')" href="#nav/framework/page/framework">Frameworks</a></li>
+    <li><a ng-class="dataModel.isPriNavActive('webservice')" href="#webservice">Web Service</a></li>
+    <li><a ng-class="dataModel.isPriNavActive('admin')" href="#admin">App Admin</a></li>
+    <li><a ng-class="dataModel.isPriNavActive('deployment')" href="#deployment">Deployments</a></li>
+    <li><a ng-class="dataModel.isPriNavActive('reflection')" href="#reflection">Reflection</a></li>
+    <li><a ng-class="dataModel.isPriNavActive('extra')" class="divider" href="#extra">Extras</a></li>
+    <li><a ng-class="dataModel.isPriNavActive('prototype')" href="#prototype">Prototypes</a></li>
+    <li><a  href="" data-ng-click="onTest()">Test</a></li>
+</ul>
+</div>
