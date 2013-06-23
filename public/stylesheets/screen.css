@@ -58,34 +58,36 @@ html a:active, body a:active {
   pointer-events: none;
 }
 
-/* line 181, ../sass/base.scss */
+/* line 185, ../sass/base.scss */
 .slide-next-enter, .slide-next-leave {
-  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -ms-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+  -ms-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
 }
 
-/* line 185, ../sass/base.scss */
+/* line 197, ../sass/base.scss */
 .slide-next-enter {
-  position: absolute;
+  left: 100%;
   -webkit-transform: translate3d(100%, 0, 0);
 }
 
-/* line 190, ../sass/base.scss */
+/* line 203, ../sass/base.scss */
 .slide-next-enter-active {
+  left: 0;
   -webkit-transform: translate3d(0%, 0, 0);
 }
 
-/* line 194, ../sass/base.scss */
+/* line 208, ../sass/base.scss */
 .slide-next-leave {
-  position: absolute;
+  left: 0;
   -webkit-transform: translate3d(0%, 0, 0);
 }
 
-/* line 199, ../sass/base.scss */
+/* line 213, ../sass/base.scss */
 .slide-next-leave-active {
+  left: -100%;
   -webkit-transform: translate3d(-100%, 0, 0);
 }
 
@@ -396,11 +398,11 @@ html a:active, body a:active {
   -webkit-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
-  -webkit-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -moz-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -ms-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -o-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  -webkit-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+  -moz-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+  -ms-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+  -o-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+  transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
 }
 /* line 59, ../sass/screen.scss */
 .main > .content {
