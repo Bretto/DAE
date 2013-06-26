@@ -2,7 +2,7 @@
 
 var services = angular.module('App.services', []);
 
-services.factory('DataModel', function ($http, $log, $rootScope, $routeParams, $location) {
+services.factory('DataModel', function ($http, $log, $rootScope, $routeParams, $location, $stateParams) {
 
     var dataModel = {};
     dataModel.toggleViewOpen = true;
@@ -10,7 +10,7 @@ services.factory('DataModel', function ($http, $log, $rootScope, $routeParams, $
     dataModel.currentPage = {};
 
     dataModel.isPriNavActive = function(value){
-        //return ( value === $stateParams.navId )? 'active' : '';
+        return ( value === $stateParams.navId )? 'active' : '';
     }
 
     return dataModel;

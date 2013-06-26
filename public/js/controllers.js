@@ -35,10 +35,12 @@ controllers.controller('PageCtrl', function ($scope, $rootScope, $timeout, $log,
     $log.info('PageCtrl');
 
 
-    $scope.doIt = function(){
-        $log.info('test');
-        //$(this).addClass('mc-enter');
-    }
+    //$timeout
+
+//    $scope.doIt = function(){
+//        $log.info('test');
+//        //$(this).addClass('mc-enter');
+//    }
 
 });
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="App" >
+<html ng-app="App">
 <head>
     <title></title>
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,8 +22,8 @@
             </div>
         </header>
         <div class="content">
-            <div class="nav-wrap" ng-include="'partials/pri-nav.html'"></div>
-            <!--<div ui-view="nav" class="content" data-ng-animate="'slide-next'"></div>-->
+            <!--<div class="nav-wrap" ng-include="'partials/pri-nav.html'"></div>-->
+            <div ui-view="nav" class="content" data-ng-animate="'slide-next'"></div>
         </div>
     </section>
     <section class="main" ng-class="{minimized:dataModel.toggleViewOpen}">
@@ -37,7 +37,7 @@
                 <h1>Main View</h1>
             </div>
         </header>
-        <div ng-view="page" class="content" data-ng-animate="'slide-next'"></div>
+        <div ui-view="page" class="content" data-ng-animate="'slide-next'" data-ng-controller="PageCtrl"></div>
     </section>
 </div>
 

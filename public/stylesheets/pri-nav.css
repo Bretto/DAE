@@ -1,9 +1,9 @@
 /*
 Syntax error: Undefined variable: "$asbestos".
-        on line 37 of /Users/Separ8/Sites/mobile-layout/public/sass/pri-nav.scss
+        on line 40 of /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss
 
 Backtrace:
-/Users/Separ8/Sites/mobile-layout/public/sass/pri-nav.scss:37
+/Users/Separ8/Sites/DAE/public/sass/pri-nav.scss:40
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/script/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/script/node.rb:40:in `perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:294:in `visit_prop'
@@ -94,4 +94,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$asbestos\".\A         on line 37 of /Users/Separ8/Sites/mobile-layout/public/sass/pri-nav.scss"; }
+  content: "Syntax error: Undefined variable: \"$asbestos\".\A         on line 40 of /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss"; }

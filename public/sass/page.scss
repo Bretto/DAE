@@ -1,9 +1,17 @@
 
 
+.scrollable{
+
+  overflow: scroll;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
 
 .page{
 
   //background: #fff;
+  //@include transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) $animTime);
 
   width: 100%;
   margin-top: $title-bar-height;
@@ -16,6 +24,8 @@
   overflow: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+
+  //overflow: hidden;
 
 
   >.inner{

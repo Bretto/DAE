@@ -113,3 +113,18 @@ directives.directive('swipeNav', function ($swipe, $log, DataModel) {
     };
 });
 
+directives.directive('page', function ( $log, DataModel, $timeout) {
+
+    function link($scope, element, attrs) {
+        $log.info('Page')
+
+//        $timeout(function(){
+//            element.addClass('scrollable')
+//        }, 200)
+    }
+
+    return {
+        link: link,
+        scope: {}
+    };
+});
