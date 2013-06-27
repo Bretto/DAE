@@ -1,38 +1,38 @@
-/* line 45, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 45, ../sass/base.scss */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 51, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 51, ../sass/base.scss */
 html, body {
   margin: 0;
   padding: 0;
 }
-/* line 56, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 56, ../sass/base.scss */
 html a:hover, body a:hover {
   text-decoration: none;
 }
-/* line 59, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 59, ../sass/base.scss */
 html a:focus, body a:focus {
   text-decoration: none;
 }
-/* line 62, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 62, ../sass/base.scss */
 html a:active, body a:active {
   text-decoration: none;
 }
 
 /* iPads (landscape) ----------- */
 /* iPads (portrait) ----------- */
-/* line 143, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 143, ../sass/base.scss */
 .toggle-view-btn {
   height: 30px;
   padding: 7px;
   margin: 2px;
   position: relative;
 }
-/* line 153, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 153, ../sass/base.scss */
 .toggle-view-btn .icon-bar {
   display: block;
   width: 18px;
@@ -47,7 +47,7 @@ html a:active, body a:active {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* line 169, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 169, ../sass/base.scss */
 .ref {
   position: absolute;
   background: rgba(255, 255, 255, 0.2);
@@ -58,7 +58,7 @@ html a:active, body a:active {
   pointer-events: none;
 }
 
-/* line 182, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 182, ../sass/base.scss */
 .slide-next-enter, .slide-next-leave {
   -webkit-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
   -moz-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
@@ -67,39 +67,59 @@ html a:active, body a:active {
   transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
 }
 
-/* line 191, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 192, ../sass/base.scss */
 .slide-next-enter {
   -webkit-transform: translate3d(100%, 0, 0);
 }
 
-/* line 196, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 197, ../sass/base.scss */
 .slide-next-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 201, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 202, ../sass/base.scss */
 .slide-next-leave {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 206, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 207, ../sass/base.scss */
 .slide-next-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
 }
 
-/* line 3, /Users/Separ8/Sites/DAE/public/sass/page.scss */
-.scrollable {
-  overflow: scroll;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+/* line 3, ../sass/page.scss */
+.box {
+  background: #ff0000;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
 }
 
-/* line 11, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+@-webkit-keyframes rotating {
+  /* line 15, ../sass/page.scss */
+  0% {
+    -webkit-transform: rotateY(0deg);
+  }
+
+  /* line 16, ../sass/page.scss */
+  50% {
+    -webkit-transform: rotateY(180deg);
+  }
+
+  /* line 17, ../sass/page.scss */
+  100% {
+    -webkit-transform: rotateY(360deg);
+  }
+}
+
+/* line 23, ../sass/page.scss */
 .page {
-  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  background: #fff;
   margin-top: 42px;
-  top: 0;
   left: 0;
+  right: 0;
+  top: 0;
   bottom: 0;
   position: absolute;
   display: block;
@@ -107,35 +127,36 @@ html a:active, body a:active {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
-/* line 31, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 47, ../sass/page.scss */
 .page > .inner {
   padding: 20px;
 }
-/* line 38, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 55, ../sass/page.scss */
 .page .title {
   height: 70px;
   border-bottom: 1px solid #ddd;
 }
-/* line 44, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 61, ../sass/page.scss */
 .page .title img {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 51, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 68, ../sass/page.scss */
 .page .content {
+  -webkit-transform-style: preserve-3d;
   padding: 25px;
 }
-/* line 56, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 75, ../sass/page.scss */
 .page .content img {
   margin-right: 100px;
 }
-/* line 61, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 80, ../sass/page.scss */
 .page section {
   margin-bottom: 50px;
   padding-top: 25px;
 }
-/* line 66, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 85, ../sass/page.scss */
 .page .group {
   padding: 5px 25px 20px;
   -webkit-border-radius: 5px;
@@ -144,46 +165,46 @@ html a:active, body a:active {
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 73, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 92, ../sass/page.scss */
 .page .model {
   background-color: rgba(241, 196, 15, 0.1);
   border: rgba(241, 196, 15, 0.2) solid 1px;
 }
-/* line 76, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 95, ../sass/page.scss */
 .page .model h2 {
   color: rgba(243, 156, 18, 0.5);
 }
-/* line 79, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 98, ../sass/page.scss */
 .page .model h3, .page .model h4 {
   color: #f39c12;
 }
-/* line 84, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 103, ../sass/page.scss */
 .page .view {
   background-color: rgba(52, 152, 219, 0.1);
   border: rgba(52, 152, 219, 0.2) solid 1px;
 }
-/* line 87, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 106, ../sass/page.scss */
 .page .view h2 {
   color: rgba(41, 128, 185, 0.5);
 }
-/* line 90, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 109, ../sass/page.scss */
 .page .view h3, .page .view h4 {
   color: #2980b9;
 }
-/* line 95, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 114, ../sass/page.scss */
 .page .controller {
   background-color: rgba(26, 188, 156, 0.1);
   border: rgba(26, 188, 156, 0.2) solid 1px;
 }
-/* line 98, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 117, ../sass/page.scss */
 .page .controller h2 {
   color: rgba(22, 160, 133, 0.5);
 }
-/* line 101, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 120, ../sass/page.scss */
 .page .controller h3, .page .controller h4 {
   color: #16a085;
 }
-/* line 106, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 125, ../sass/page.scss */
 .page .me {
   padding: 20px;
   -webkit-border-radius: 5px;
@@ -194,7 +215,7 @@ html a:active, body a:active {
   background: rgba(26, 188, 156, 0.1);
   color: #16a085;
 }
-/* line 113, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 132, ../sass/page.scss */
 .page .todo {
   padding: 20px;
   -webkit-border-radius: 5px;
@@ -205,57 +226,57 @@ html a:active, body a:active {
   background: rgba(231, 76, 60, 0.1);
   color: #c0392b;
 }
-/* line 120, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 139, ../sass/page.scss */
 .page h1 {
   margin: 0;
   padding: 12px 25px;
   color: #000000;
 }
-/* line 126, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 145, ../sass/page.scss */
 .page h2 {
   margin-bottom: 0;
 }
-/* line 130, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 149, ../sass/page.scss */
 .page h2, .page h3, .page h4 {
   color: #000;
 }
-/* line 134, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 153, ../sass/page.scss */
 .page p, .page li {
   color: #777;
 }
-/* line 138, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 157, ../sass/page.scss */
 .page .breath {
   margin: 30px 0;
 }
-/* line 143, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 162, ../sass/page.scss */
 .page ul a {
   margin-bottom: 0;
 }
-/* line 149, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 168, ../sass/page.scss */
 .page table td, .page table th {
   text-align: center;
 }
-/* line 156, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 175, ../sass/page.scss */
 .page .possi .text-left {
   text-align: left;
 }
-/* line 160, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 179, ../sass/page.scss */
 .page .possi a {
   margin-bottom: 0;
   display: inline;
 }
-/* line 166, /Users/Separ8/Sites/DAE/public/sass/page.scss */
+/* line 185, ../sass/page.scss */
 .page blockquote {
   border-color: #3498db;
   margin: 30px 0;
 }
 
-/* line 2, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 2, ../sass/pri-nav.scss */
 .nav-wrap {
   height: 100%;
 }
 
-/* line 6, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 6, ../sass/pri-nav.scss */
 .nav {
   overflow: scroll;
   overflow-x: hidden;
@@ -270,56 +291,56 @@ html a:active, body a:active {
   overflow: scroll;
   overflow-x: hidden;
 }
-/* line 25, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 25, ../sass/pri-nav.scss */
 .nav ul {
   list-style: none;
   margin: 0;
 }
-/* line 30, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 30, ../sass/pri-nav.scss */
 .nav li {
   cursor: hand;
   cursor: pointer;
 }
-/* line 34, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 34, ../sass/pri-nav.scss */
 .nav .divider {
   border-top: 1px solid #333;
 }
-/* line 38, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 38, ../sass/pri-nav.scss */
 .nav a {
   display: block;
   color: #7f8c8d;
   padding: 15px 25px;
 }
-/* line 44, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 44, ../sass/pri-nav.scss */
 .nav a:hover {
   background: rgba(52, 73, 94, 0.02);
 }
-/* line 48, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 48, ../sass/pri-nav.scss */
 .nav a.active {
   background: #34495e;
   color: #ffffff;
   text-shadow: black 0 1px 0;
 }
 
-/* line 60, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 60, ../sass/pri-nav.scss */
 .pri-nav {
   background: #ecf0f1;
   width: 200px;
 }
-/* line 67, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 67, ../sass/pri-nav.scss */
 .pri-nav .brand {
   display: none;
 }
-/* line 71, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 71, ../sass/pri-nav.scss */
 .pri-nav .divider {
   border-top: 0;
 }
-/* line 76, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 76, ../sass/pri-nav.scss */
 .pri-nav ul {
   margin: 0;
   margin-top: 20px;
 }
-/* line 82, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 82, ../sass/pri-nav.scss */
 .pri-nav li {
   text-shadow: white 0 1px 0;
   background: #eee;
@@ -328,7 +349,7 @@ html a:active, body a:active {
   border-top: 1px solid white;
   border-bottom: 1px solid #ddd;
 }
-/* line 91, /Users/Separ8/Sites/DAE/public/sass/pri-nav.scss */
+/* line 91, ../sass/pri-nav.scss */
 .pri-nav li a {
   color: #2c3e50;
   font-size: 15px;
@@ -355,7 +376,7 @@ html a:active, body a:active {
 .navigation .content {
   height: 100%;
 }
-/* line 95, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 95, ../sass/base.scss */
 .navigation > header {
   height: 42px;
   position: absolute;
@@ -366,11 +387,11 @@ html a:active, body a:active {
   border-bottom: rgba(255, 255, 255, 0.4) solid 1px;
   z-index: 1;
 }
-/* line 108, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 108, ../sass/base.scss */
 .navigation > header .inner {
   padding: 3px;
 }
-/* line 113, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 113, ../sass/base.scss */
 .navigation > header h1 {
   color: #ffffff;
   text-shadow: black 0 -1px 0;
@@ -379,7 +400,7 @@ html a:active, body a:active {
   line-height: 33px;
   margin: 0;
 }
-/* line 124, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 124, ../sass/base.scss */
 .navigation > header:before {
   content: "";
   position: absolute;
@@ -391,7 +412,7 @@ html a:active, body a:active {
   pointer-events: none;
 }
 
-/* line 46, ../sass/screen.scss */
+/* line 50, ../sass/screen.scss */
 .main {
   position: fixed;
   top: 0;
@@ -408,25 +429,30 @@ html a:active, body a:active {
   -o-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
   transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
 }
-/* line 59, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 .main > .content {
-  background: #fff;
+  -webkit-perspective: 400px;
+  background: #000;
   height: 100%;
   width: 100%;
 }
 @media only screen and (orientation: landscape) {
-  /* line 68, ../sass/screen.scss */
+  /* line 85, ../sass/screen.scss */
   .main.minimized {
     -webkit-transform: translate3d(200px, 0, 0);
+  }
+  /* line 89, ../sass/screen.scss */
+  .main.minimized .page {
+    margin-right: 200px;
   }
 }
 @media only screen and (orientation: portrait) {
-  /* line 75, ../sass/screen.scss */
+  /* line 97, ../sass/screen.scss */
   .main.minimized {
     -webkit-transform: translate3d(200px, 0, 0);
   }
 }
-/* line 95, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 95, ../sass/base.scss */
 .main > header {
   height: 42px;
   position: absolute;
@@ -437,11 +463,11 @@ html a:active, body a:active {
   border-bottom: rgba(255, 255, 255, 0.4) solid 1px;
   z-index: 1;
 }
-/* line 108, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 108, ../sass/base.scss */
 .main > header .inner {
   padding: 3px;
 }
-/* line 113, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 113, ../sass/base.scss */
 .main > header h1 {
   color: #ffffff;
   text-shadow: black 0 -1px 0;
@@ -450,7 +476,7 @@ html a:active, body a:active {
   line-height: 33px;
   margin: 0;
 }
-/* line 124, /Users/Separ8/Sites/DAE/public/sass/base.scss */
+/* line 124, ../sass/base.scss */
 .main > header:before {
   content: "";
   position: absolute;
@@ -462,7 +488,7 @@ html a:active, body a:active {
   pointer-events: none;
 }
 
-/* line 84, ../sass/screen.scss */
+/* line 106, ../sass/screen.scss */
 .noanimate {
   -webkit-transition: none !important;
   -moz-transition: none !important;

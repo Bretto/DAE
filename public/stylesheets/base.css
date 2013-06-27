@@ -67,22 +67,22 @@ html a:active, body a:active {
   transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
 }
 
-/* line 191, ../sass/base.scss */
+/* line 192, ../sass/base.scss */
 .slide-next-enter {
   -webkit-transform: translate3d(100%, 0, 0);
 }
 
-/* line 196, ../sass/base.scss */
+/* line 197, ../sass/base.scss */
 .slide-next-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 201, ../sass/base.scss */
+/* line 202, ../sass/base.scss */
 .slide-next-leave {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 206, ../sass/base.scss */
+/* line 207, ../sass/base.scss */
 .slide-next-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
 }

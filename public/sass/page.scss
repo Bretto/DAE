@@ -1,25 +1,41 @@
 
 
-.scrollable{
+.box{
+  background: #ff0000;
+  //@include transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) $animTime);
 
-  overflow: scroll;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+
 }
+
+@-webkit-keyframes rotating {
+  0%    { -webkit-transform: rotateY(0deg); }
+  50%   { -webkit-transform: rotateY(180deg); }
+  100%  { -webkit-transform: rotateY(360deg); }
+}
+
+
 
 
 .page{
 
-  //background: #fff;
-  //@include transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) $animTime);
+  -webkit-transform-style: preserve-3d;
 
-  width: 100%;
+
+  background: #fff;
+  //width: 100%;
   margin-top: $title-bar-height;
-  top: 0;
   left: 0;
+  right: 0;
+  top: 0;
   bottom: 0;
   position: absolute;
   display: block;
+
+
 
   overflow: scroll;
   overflow-x: hidden;
@@ -29,6 +45,7 @@
 
 
   >.inner{
+
     padding: 20px;
   }
 
@@ -49,6 +66,8 @@
   }
 
   .content {
+
+    -webkit-transform-style: preserve-3d;
     padding: 25px;
 
 

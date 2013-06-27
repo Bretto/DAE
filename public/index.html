@@ -5,6 +5,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel='stylesheet' href='stylesheets/bootstrap.css'/>
+    <link rel='stylesheet' href='stylesheets/animations.css'/>
     <link rel='stylesheet' href='stylesheets/screen.css'/>
 
      <!--iPad (portrait) SPLASHSCREEN-->
@@ -37,7 +38,9 @@
                 <h1>Main View</h1>
             </div>
         </header>
-        <div ui-view="page" class="content" data-ng-animate="'slide-next'" data-ng-controller="PageCtrl"></div>
+        <!--<div class="zCube">-->
+        <div ui-view="page" class="content" data-ng-animate="{enter: 'pt-page-rotateSlideIn', leave: 'pt-page-rotateSlideOut'}" data-ng-controller="PageCtrl"></div>
+        <!--</div>-->
     </section>
 </div>
 
@@ -56,3 +59,4 @@
 
 </body>
 </html>
+

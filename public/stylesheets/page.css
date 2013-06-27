@@ -1,9 +1,9 @@
 /*
 Syntax error: Undefined variable: "$title-bar-height".
-        on line 17 of /Users/Separ8/Sites/DAE/public/sass/page.scss
+        on line 30 of /Users/Separ8/Sites/DAE/public/sass/page.scss
 
 Backtrace:
-/Users/Separ8/Sites/DAE/public/sass/page.scss:17
+/Users/Separ8/Sites/DAE/public/sass/page.scss:30
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/script/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/script/node.rb:40:in `perform'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.1/lib/sass/../sass/tree/visitors/perform.rb:294:in `visit_prop'
@@ -83,4 +83,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$title-bar-height\".\A         on line 17 of /Users/Separ8/Sites/DAE/public/sass/page.scss"; }
+  content: "Syntax error: Undefined variable: \"$title-bar-height\".\A         on line 30 of /Users/Separ8/Sites/DAE/public/sass/page.scss"; }
