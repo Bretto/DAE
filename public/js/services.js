@@ -15,3 +15,15 @@ services.factory('DataModel', function ($http, $log, $rootScope, $routeParams, $
 
     return dataModel;
 });
+
+
+//services.factory('EmployeeService', function ($http, $log, $rootScope, $routeParams, $location, $stateParams) {
+//
+//    try {
+//        var jsonrpc = new JSONRpcClient("http://192.168.1.140:7101/HRSCA-HRSCA-context-root/JSONServiceProvider");
+//    } catch (e) {
+//        $log.info('jsonrpc fail to connect');
+//    }
+//
+//    return jsonrpc.EmployeeService;
+//});

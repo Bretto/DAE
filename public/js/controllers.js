@@ -44,14 +44,77 @@ controllers.controller('PageCtrl', function ($scope, $rootScope, $timeout, $log,
 
 });
 
-
-// Declare app level module which depends on filters, and services
-
-
+controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel) {
+    $log.info('SequelSphereDBCtrl');
 
 
 
+//    var sql = "SELECT *" +
+//        "  FROM EmployeesEO";
+//    var average_age = db.query(sql);
 
+
+    $.getJSON("data.json", function(json) {
+        $scope.$apply(function(){
+            $scope.employeeList = json;
+        });
+    });
+
+
+
+    $scope.onSelectEmployee = function(employee){
+        $scope.currentEmployee = employee;
+    }
+
+
+//    EmployeeService.getEmployeesEOList(function(res, err){
+//
+//        if(err){
+//            $log.info('FAIL',err);
+//        }else{
+//            $log.info('SUCCESS',res);
+//
+//            $scope.$apply(function(){
+//                $scope.employeeList = res.list;
+//
+//                db.catalog.createTable({
+//                    tableName: "EmployeesEO",
+//                    columns: [ "employeeId", "lastName", "firstName", "phoneNumber", "email" ],
+//                    primaryKey: [ "employeeId" ]});
+//
+//                db.catalog.setPersistenceScope(db.SCOPE_LOCAL);
+//
+//
+//
+//                var empTab = db.catalog.getTable("EmployeesEO");
+//                for(var i=0;i<$scope.employeeList.length;i++) {
+//                    var emp = $scope.employeeList[i];
+//                    var newrow = [emp.employeeId,emp.lastName,emp.firstName,emp.phoneNumber,emp.email];
+//                    empTab.insertRow(newrow);
+//                }
+//            })
+//        }
+//
+//    });
+
+
+
+
+//    $log.info(data);
+
+    // Call a Java method on the server
+    //var data = jsonrpc.EmployeeService.getEmployeesEO(124);
+    //Display the result
+    //result = jsonrpc.EmployeeService.deleteEmployeesEO(data);
+//    data.firstName.value+='Az';
+//    data.email+='Az';
+//    data.employeeId+=1000;
+//    result = jsonrpc.EmployeeService.getEmployeesEOList();
+//    //result = jsonrpc.EmployeeService.getEmptyEmployeeEO();
+//
+
+
+});
 
 
 

@@ -86,3 +86,83 @@ html a:active, body a:active {
 .slide-next-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
 }
+
+/* line 226, ../sass/base.scss */
+input {
+  height: 30px !important;
+}
+
+/* line 230, ../sass/base.scss */
+.inline-edit {
+  position: absolute;
+}
+/* line 237, ../sass/base.scss */
+.inline-edit .btn {
+  height: 20px;
+  line-height: 0px;
+}
+
+/* line 243, ../sass/base.scss */
+.employee-list {
+  position: relative;
+  margin: 0;
+  border: #ddd solid 1px;
+  overflow: scroll;
+  height: 500px;
+  margin-bottom: 20px;
+}
+
+/* line 254, ../sass/base.scss */
+.employee-wrap {
+  background: #fff;
+  position: absolute;
+  list-style: none;
+  width: 100%;
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  -ms-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+/* line 261, ../sass/base.scss */
+.employee-wrap:nth-child(odd) .employee {
+  background-color: #f9f9f9;
+}
+
+/* line 266, ../sass/base.scss */
+.employee {
+  padding: 10px;
+  padding-bottom: 0;
+  border-bottom: #ddd solid 1px;
+  left: 0;
+  top: 0;
+}
+
+/* line 283, ../sass/base.scss */
+.repeat-enter, .repeat-leave {
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  -ms-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+/* line 291, ../sass/base.scss */
+.repeat-enter {
+  opacity: 0;
+}
+
+/* line 298, ../sass/base.scss */
+.repeat-enter.repeat-enter-active {
+  opacity: 1;
+}
+
+/* line 305, ../sass/base.scss */
+.repeat-leave {
+  opacity: 1;
+}
+
+/* line 311, ../sass/base.scss */
+.repeat-leave.repeat-leave-active {
+  opacity: 0;
+}
