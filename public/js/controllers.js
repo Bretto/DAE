@@ -35,6 +35,8 @@ controllers.controller('PageCtrl', function ($scope, $rootScope, $timeout, $log,
     $log.info('PageCtrl');
 
 
+
+
     //$timeout
 
 //    $scope.doIt = function(){
@@ -47,6 +49,15 @@ controllers.controller('PageCtrl', function ($scope, $rootScope, $timeout, $log,
 controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel) {
     $log.info('SequelSphereDBCtrl');
 
+
+    // hack to detects the virtual keyboard close action and fix the layout bug of fixed elements not being re-flowed
+    $('input, textarea').on('blur', function(e) {
+
+        $('.main').css('position', 'absolute');
+        $timeout(function(){
+            $('.main').css('position', 'fixed');
+        },0)
+    });
 
 
 //    var sql = "SELECT *" +
@@ -61,9 +72,33 @@ controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $time
     });
 
 
-
     $scope.onSelectEmployee = function(employee){
+
+        $scope.originalEmployee = angular.copy(employee);
+
+        if($scope.currentEmployee) $scope.currentEmployee.isActive = false;
         $scope.currentEmployee = employee;
+        $scope.currentEmployee.isActive = true;
+
+
+
+
+    }
+
+    $scope.onSave = function(){
+        resetSelection();
+    }
+
+    $scope.onCancel = function(){
+        angular.extend($scope.currentEmployee, $scope.originalEmployee);
+        resetSelection();
+
+    }
+
+    function resetSelection(){
+        $scope.currentEmployee.isActive = false;
+        $scope.currentEmployee = null;
+        $scope.originalEmployee = null;
     }
 
 

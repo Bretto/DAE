@@ -49,14 +49,7 @@
 
 .main {
 
-
-  //-webkit-perspective: 1200px;
-  //-moz-perspective: 1200px;
-  //perspective: 1200px;
-  //-webkit-perspective: 1200px;
-  //
-  //-webkit-perspective-origin: 50% 50%;
-
+  //z-index: 1;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -72,19 +65,19 @@
 
     -webkit-perspective: 400px;
 
-    //-webkit-transform-style: preserve-3d;
-
     background: #000;
     height: 100%;
     width: 100%;
+  }
+
+  &.minimized{
+    -webkit-transform: translate3d($pri-nav-width,0,0);
   }
 
 
   @include respond-to(landscape) {
 
     &.minimized{
-      -webkit-transform: translate3d($pri-nav-width,0,0);
-
 
       .page{
         margin-right: 200px;
@@ -95,7 +88,7 @@
   @include respond-to(portrait) {
 
     &.minimized{
-      -webkit-transform: translate3d($pri-nav-width,0,0);
+      //-webkit-transform: translate3d($pri-nav-width,0,0);
     }
 
   }

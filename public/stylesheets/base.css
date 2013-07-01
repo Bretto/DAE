@@ -10,29 +10,29 @@ html, body {
   margin: 0;
   padding: 0;
 }
-/* line 56, ../sass/base.scss */
+/* line 57, ../sass/base.scss */
 html a:hover, body a:hover {
   text-decoration: none;
 }
-/* line 59, ../sass/base.scss */
+/* line 60, ../sass/base.scss */
 html a:focus, body a:focus {
   text-decoration: none;
 }
-/* line 62, ../sass/base.scss */
+/* line 63, ../sass/base.scss */
 html a:active, body a:active {
   text-decoration: none;
 }
 
 /* iPads (landscape) ----------- */
 /* iPads (portrait) ----------- */
-/* line 143, ../sass/base.scss */
+/* line 144, ../sass/base.scss */
 .toggle-view-btn {
   height: 30px;
   padding: 7px;
   margin: 2px;
   position: relative;
 }
-/* line 153, ../sass/base.scss */
+/* line 154, ../sass/base.scss */
 .toggle-view-btn .icon-bar {
   display: block;
   width: 18px;
@@ -47,7 +47,7 @@ html a:active, body a:active {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* line 169, ../sass/base.scss */
+/* line 170, ../sass/base.scss */
 .ref {
   position: absolute;
   background: rgba(255, 255, 255, 0.2);
@@ -58,7 +58,7 @@ html a:active, body a:active {
   pointer-events: none;
 }
 
-/* line 182, ../sass/base.scss */
+/* line 183, ../sass/base.scss */
 .slide-next-enter, .slide-next-leave {
   -webkit-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
   -moz-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
@@ -67,42 +67,48 @@ html a:active, body a:active {
   transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
 }
 
-/* line 192, ../sass/base.scss */
+/* line 193, ../sass/base.scss */
 .slide-next-enter {
   -webkit-transform: translate3d(100%, 0, 0);
 }
 
-/* line 197, ../sass/base.scss */
+/* line 198, ../sass/base.scss */
 .slide-next-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 202, ../sass/base.scss */
+/* line 203, ../sass/base.scss */
 .slide-next-leave {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 207, ../sass/base.scss */
+/* line 208, ../sass/base.scss */
 .slide-next-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
 }
 
-/* line 226, ../sass/base.scss */
+/* line 227, ../sass/base.scss */
 input {
   height: 30px !important;
 }
 
-/* line 230, ../sass/base.scss */
+/* line 231, ../sass/base.scss */
 .inline-edit {
   position: absolute;
 }
-/* line 237, ../sass/base.scss */
+/* line 238, ../sass/base.scss */
 .inline-edit .btn {
   height: 20px;
   line-height: 0px;
 }
 
-/* line 243, ../sass/base.scss */
+/* line 244, ../sass/base.scss */
+.employeeIsActive {
+  background-color: #34495e !important;
+  color: #fff;
+}
+
+/* line 249, ../sass/base.scss */
 .employee-list {
   position: relative;
   margin: 0;
@@ -112,7 +118,7 @@ input {
   margin-bottom: 20px;
 }
 
-/* line 254, ../sass/base.scss */
+/* line 260, ../sass/base.scss */
 .employee-wrap {
   background: #fff;
   position: absolute;
@@ -124,13 +130,15 @@ input {
   -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
-/* line 261, ../sass/base.scss */
+/* line 267, ../sass/base.scss */
 .employee-wrap:nth-child(odd) .employee {
   background-color: #f9f9f9;
 }
 
-/* line 266, ../sass/base.scss */
+/* line 272, ../sass/base.scss */
 .employee {
+  cursor: hand;
+  cursor: pointer;
   padding: 10px;
   padding-bottom: 0;
   border-bottom: #ddd solid 1px;
@@ -138,7 +146,7 @@ input {
   top: 0;
 }
 
-/* line 283, ../sass/base.scss */
+/* line 292, ../sass/base.scss */
 .repeat-enter, .repeat-leave {
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
   -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
@@ -147,22 +155,22 @@ input {
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
 
-/* line 291, ../sass/base.scss */
+/* line 300, ../sass/base.scss */
 .repeat-enter {
   opacity: 0;
 }
 
-/* line 298, ../sass/base.scss */
+/* line 304, ../sass/base.scss */
 .repeat-enter.repeat-enter-active {
   opacity: 1;
 }
 
-/* line 305, ../sass/base.scss */
+/* line 308, ../sass/base.scss */
 .repeat-leave {
   opacity: 1;
 }
 
-/* line 311, ../sass/base.scss */
+/* line 312, ../sass/base.scss */
 .repeat-leave.repeat-leave-active {
   opacity: 0;
 }

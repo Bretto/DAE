@@ -52,6 +52,7 @@ html, body {
   margin: 0;
   padding: 0;
 
+
   a{
     &:hover{
       text-decoration: none;
@@ -240,6 +241,11 @@ input{
   }
 }
 
+.employeeIsActive{
+  background-color: #34495e !important;
+  color: #fff;
+}
+
 .employee-list{
   position: relative;
   margin: 0;
@@ -264,6 +270,9 @@ input{
 }
 
 .employee{
+
+  cursor: hand;
+  cursor: pointer;
 
   padding: 10px;
   padding-bottom: 0;
@@ -290,27 +299,16 @@ input{
 
 .repeat-enter {
   opacity: 0;
-  //height: 0;
-  //-webkit-transform: scale2d(0,0);
-  //left: 100%;
 }
 
 .repeat-enter.repeat-enter-active {
   opacity: 1;
-  //left: 0;
-  //height: 30px;
-  //-webkit-transform: scale2d(1,1);
 }
 
 .repeat-leave {
   opacity: 1;
-  //-webkit-transform: scale2d(1,1);
-  //left: 0;
 }
 
 .repeat-leave.repeat-leave-active {
   opacity: 0;
-  //-webkit-transform: scale2d(0,0);
-  //left: 100%;
-  //height: 0;
 }

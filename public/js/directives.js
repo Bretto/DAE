@@ -30,7 +30,7 @@ directives.directive('swipeNav', function ($swipe, $log, DataModel) {
 
         $swipe.bind(main, {
             start: function (coords) {
-                $log.info('start:');
+//                $log.info('start:');
                 /* capture initial event position */
                 if (swiping === 0) {
                     swiping = 1;

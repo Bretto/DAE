@@ -11,8 +11,8 @@
 
             <ul class="employee-list">
                 <!--data-ng-animate="'repeat'" -->
-                <li data-ng-click="onSelectEmployee(employee)" data-ng-repeat="employee in employeeList | searchFilter:search" class="employee-wrap" data-ng-animate="'repeat'" data-ng-class="getEmployeeClass($index)" employee>
-                        <div class="employee row-fluid">
+                <li data-ng-repeat="employee in employeeList | searchFilter:search" class="employee-wrap" data-ng-animate="'repeat'" data-ng-class="getEmployeeClass($index)" employee>
+                        <div class="employee row-fluid" data-ng-class="{employeeIsActive: employee.isActive}" data-ng-click="onSelectEmployee(employee)">
                         <span class="span1">{{$index + 1}}</span>
                         <!--<span>{{employee.id}}</span>-->
                         <span class="span5">{{employee.name}}</span>
@@ -59,7 +59,8 @@
                 <div class="row-fluid">
                 <textarea placeholder="Bio" class="span12" ng-model="currentEmployee.bio"></textarea>
                     </div>
-                <button type="submit" class="btn">Sign in</button>
+                <button type="submit" class="btn" data-ng-click="onSave()">Save</button>
+                <button type="submit" class="btn" data-ng-click="onCancel()">Cancel</button>
             </form>
             </div>
 
