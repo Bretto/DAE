@@ -9,30 +9,36 @@
 html, body {
   margin: 0;
   padding: 0;
+  position: relative;
+  background: #ff0000;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100%;
+  height: 100%;
 }
-/* line 57, ../sass/base.scss */
+/* line 69, ../sass/base.scss */
 html a:hover, body a:hover {
   text-decoration: none;
 }
-/* line 60, ../sass/base.scss */
+/* line 72, ../sass/base.scss */
 html a:focus, body a:focus {
   text-decoration: none;
 }
-/* line 63, ../sass/base.scss */
+/* line 75, ../sass/base.scss */
 html a:active, body a:active {
   text-decoration: none;
 }
 
 /* iPads (landscape) ----------- */
 /* iPads (portrait) ----------- */
-/* line 144, ../sass/base.scss */
+/* line 156, ../sass/base.scss */
 .toggle-view-btn {
   height: 30px;
   padding: 7px;
   margin: 2px;
   position: relative;
 }
-/* line 154, ../sass/base.scss */
+/* line 166, ../sass/base.scss */
 .toggle-view-btn .icon-bar {
   display: block;
   width: 18px;
@@ -47,7 +53,7 @@ html a:active, body a:active {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* line 170, ../sass/base.scss */
+/* line 182, ../sass/base.scss */
 .ref {
   position: absolute;
   background: rgba(255, 255, 255, 0.2);
@@ -58,7 +64,7 @@ html a:active, body a:active {
   pointer-events: none;
 }
 
-/* line 183, ../sass/base.scss */
+/* line 195, ../sass/base.scss */
 .slide-next-enter, .slide-next-leave {
   -webkit-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
   -moz-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
@@ -67,75 +73,68 @@ html a:active, body a:active {
   transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
 }
 
-/* line 193, ../sass/base.scss */
+/* line 205, ../sass/base.scss */
 .slide-next-enter {
   -webkit-transform: translate3d(100%, 0, 0);
 }
 
-/* line 198, ../sass/base.scss */
+/* line 210, ../sass/base.scss */
 .slide-next-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 203, ../sass/base.scss */
+/* line 215, ../sass/base.scss */
 .slide-next-leave {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 208, ../sass/base.scss */
+/* line 220, ../sass/base.scss */
 .slide-next-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
 }
 
-/* line 227, ../sass/base.scss */
+/* line 239, ../sass/base.scss */
 input {
   height: 30px !important;
 }
 
-/* line 231, ../sass/base.scss */
+/* line 243, ../sass/base.scss */
 .inline-edit {
   position: absolute;
 }
-/* line 238, ../sass/base.scss */
+/* line 250, ../sass/base.scss */
 .inline-edit .btn {
   height: 20px;
   line-height: 0px;
 }
 
-/* line 244, ../sass/base.scss */
+/* line 257, ../sass/base.scss */
 .employeeIsActive {
   background-color: #34495e !important;
   color: #fff;
+  height: 224px;
 }
 
-/* line 249, ../sass/base.scss */
+/* line 263, ../sass/base.scss */
 .employee-list {
   position: relative;
   margin: 0;
   border: #ddd solid 1px;
-  overflow: scroll;
-  height: 500px;
   margin-bottom: 20px;
 }
 
-/* line 260, ../sass/base.scss */
+/* line 274, ../sass/base.scss */
 .employee-wrap {
   background: #fff;
-  position: absolute;
   list-style: none;
   width: 100%;
-  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -ms-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  -o-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
-  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
-/* line 267, ../sass/base.scss */
+/* line 281, ../sass/base.scss */
 .employee-wrap:nth-child(odd) .employee {
   background-color: #f9f9f9;
 }
 
-/* line 272, ../sass/base.scss */
+/* line 286, ../sass/base.scss */
 .employee {
   cursor: hand;
   cursor: pointer;
@@ -146,7 +145,33 @@ input {
   top: 0;
 }
 
-/* line 292, ../sass/base.scss */
+/* line 304, ../sass/base.scss */
+.employee-edit {
+  padding: 20px;
+  background: #eee;
+}
+
+/* line 309, ../sass/base.scss */
+.employee-edit-cell {
+  position: absolute;
+  border: none !important;
+  padding: 0 !important;
+  margin-top: 35px;
+  width: 100%;
+}
+
+/* line 320, ../sass/base.scss */
+.edit-hack-1 {
+  position: absolute;
+  border: none !important;
+}
+
+/* line 325, ../sass/base.scss */
+.edit-hack-2 {
+  border-left: none !important;
+}
+
+/* line 329, ../sass/base.scss */
 .repeat-enter, .repeat-leave {
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
   -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
@@ -155,22 +180,22 @@ input {
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
 
-/* line 300, ../sass/base.scss */
+/* line 337, ../sass/base.scss */
 .repeat-enter {
   opacity: 0;
 }
 
-/* line 304, ../sass/base.scss */
+/* line 341, ../sass/base.scss */
 .repeat-enter.repeat-enter-active {
   opacity: 1;
 }
 
-/* line 308, ../sass/base.scss */
+/* line 345, ../sass/base.scss */
 .repeat-leave {
   opacity: 1;
 }
 
-/* line 312, ../sass/base.scss */
+/* line 349, ../sass/base.scss */
 .repeat-leave.repeat-leave-active {
   opacity: 0;
 }

@@ -3,15 +3,17 @@
 
 var controllers = angular.module('App.controllers', []);
 
+//                $('.page').css('background-color', '#'+Math.floor(Math.random()*16777215).toString(16));
 
 controllers.controller('AppCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel) {
     $log.info('AppCtrl');
 
     $scope.dataModel = DataModel;
 
-    $scope.onPriNavClick = function(page){
+    $scope.onPriNavClick = function (page) {
         $scope.currentPage = page;
     }
+
 
 });
 
@@ -27,127 +29,61 @@ controllers.controller('PrimaryNavCtrl', function ($scope, $rootScope, $routePar
 
     $scope.dataModel = DataModel;
 
-
-
 });
 
 controllers.controller('PageCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel) {
     $log.info('PageCtrl');
 
-
-
-
-    //$timeout
-
-//    $scope.doIt = function(){
-//        $log.info('test');
-//        //$(this).addClass('mc-enter');
-//    }
-
 });
 
-controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel) {
+//controllers.controller('EmployeeEdit', function ($scope, $rootScope, $timeout, $log, $http, DataModel) {
+//    $('input').bind('focus',function() {
+//        $log.info('test');
+//        $('.main').css('position','fixed');
+//        $('.navigation').css('position','fixed');
+//    });
+//});
+
+
+controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel, EmployeeService, LocalDB) {
     $log.info('SequelSphereDBCtrl');
 
 
-    // hack to detects the virtual keyboard close action and fix the layout bug of fixed elements not being re-flowed
-    $('input, textarea').on('blur', function(e) {
+    $scope.employeeList = DataModel.getEmployeeList();
 
-        $('.main').css('position', 'absolute');
-        $timeout(function(){
-            $('.main').css('position', 'fixed');
-        },0)
-    });
+    $scope.onDropTable = function(){
+        db.catalog.dropTable("EMPLOYEES");
+        db.commit();
+    }
 
 
-//    var sql = "SELECT *" +
-//        "  FROM EmployeesEO";
-//    var average_age = db.query(sql);
+    $scope.onSelectEmployee = function (employee) {
 
-
-    $.getJSON("data.json", function(json) {
-        $scope.$apply(function(){
-            $scope.employeeList = json;
-        });
-    });
-
-
-    $scope.onSelectEmployee = function(employee){
+        console.log("The current value of myVariable is ");
 
         $scope.originalEmployee = angular.copy(employee);
 
-        if($scope.currentEmployee) $scope.currentEmployee.isActive = false;
+        if ($scope.currentEmployee) $scope.currentEmployee.isActive = false;
         $scope.currentEmployee = employee;
-        $scope.currentEmployee.isActive = true;
-
-
-
+        employee.isActive = true;
 
     }
 
-    $scope.onSave = function(){
+    $scope.onSave = function () {
         resetSelection();
     }
 
-    $scope.onCancel = function(){
+    $scope.onCancel = function () {
         angular.extend($scope.currentEmployee, $scope.originalEmployee);
         resetSelection();
 
     }
 
-    function resetSelection(){
+    function resetSelection() {
         $scope.currentEmployee.isActive = false;
         $scope.currentEmployee = null;
         $scope.originalEmployee = null;
     }
-
-
-//    EmployeeService.getEmployeesEOList(function(res, err){
-//
-//        if(err){
-//            $log.info('FAIL',err);
-//        }else{
-//            $log.info('SUCCESS',res);
-//
-//            $scope.$apply(function(){
-//                $scope.employeeList = res.list;
-//
-//                db.catalog.createTable({
-//                    tableName: "EmployeesEO",
-//                    columns: [ "employeeId", "lastName", "firstName", "phoneNumber", "email" ],
-//                    primaryKey: [ "employeeId" ]});
-//
-//                db.catalog.setPersistenceScope(db.SCOPE_LOCAL);
-//
-//
-//
-//                var empTab = db.catalog.getTable("EmployeesEO");
-//                for(var i=0;i<$scope.employeeList.length;i++) {
-//                    var emp = $scope.employeeList[i];
-//                    var newrow = [emp.employeeId,emp.lastName,emp.firstName,emp.phoneNumber,emp.email];
-//                    empTab.insertRow(newrow);
-//                }
-//            })
-//        }
-//
-//    });
-
-
-
-
-//    $log.info(data);
-
-    // Call a Java method on the server
-    //var data = jsonrpc.EmployeeService.getEmployeesEO(124);
-    //Display the result
-    //result = jsonrpc.EmployeeService.deleteEmployeesEO(data);
-//    data.firstName.value+='Az';
-//    data.email+='Az';
-//    data.employeeId+=1000;
-//    result = jsonrpc.EmployeeService.getEmployeesEOList();
-//    //result = jsonrpc.EmployeeService.getEmptyEmployeeEO();
-//
-
 
 });
 

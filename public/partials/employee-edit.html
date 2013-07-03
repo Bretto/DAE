@@ -1,0 +1,15 @@
+<div class="well">
+    <form>
+        <div class="row-fluid">
+            <input type="text" class="input-small span3" placeholder="Id" ng-model="currentEmployee.id">
+            <input type="text" class="input-small span4" placeholder="Name" ng-model="currentEmployee.name">
+            <input type="number" class="input-small span1" placeholder="Age" ng-model="currentEmployee.age">
+            <input type="text" class="input-small span4" placeholder="Email" ng-model="currentEmployee.email">
+        </div>
+        <div class="row-fluid">
+            <textarea placeholder="Bio" class="span12" ng-model="currentEmployee.bio"></textarea>
+        </div>
+        <button type="submit" class="btn" data-ng-click="onSave()">Save</button>
+        <button type="submit" class="btn" data-ng-click="onCancel()">Cancel</button>
+    </form>
+</div>

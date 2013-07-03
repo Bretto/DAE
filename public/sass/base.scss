@@ -51,7 +51,19 @@ $title-bar-height: 42px;
 html, body {
   margin: 0;
   padding: 0;
+  position: relative;
 
+  background: #ff0000;
+
+  top: 0 !important;
+  left: 0 !important;
+  //
+  //overflow: hidden;
+  //
+  //overflow-x: none;
+
+  width: 100%;
+  height: 100%;
 
   a{
     &:hover{
@@ -241,17 +253,19 @@ input{
   }
 }
 
+
 .employeeIsActive{
   background-color: #34495e !important;
   color: #fff;
+  height: 224px;
 }
 
 .employee-list{
   position: relative;
   margin: 0;
   border: #ddd solid 1px;
-  overflow: scroll;
-  height: 500px;
+  //overflow: scroll;
+  //height: 500px;
   margin-bottom: 20px;
 }
 
@@ -259,10 +273,10 @@ input{
 
 .employee-wrap{
   background: #fff;
-  position: absolute;
+  //position: absolute;
   list-style: none;
   width: 100%;
-  @include transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) .3s);
+  //@include transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) .3s);
 
   &:nth-child(odd) .employee{
     background-color: #f9f9f9;
@@ -280,13 +294,36 @@ input{
   left: 0;
   top: 0;
 
-
-
   //display: block;
   //position: absolute;
   //height: 30px;
 //  display: block;
 //  width: 400px;
+}
+
+.employee-edit{
+  padding: 20px;
+  background: #eee;
+}
+
+.employee-edit-cell{
+  position: absolute;
+  border: none !important;
+  padding: 0 !important;
+  margin-top: 35px;
+  width: 100%;
+}
+
+.employee-edit-wrap{
+}
+
+.edit-hack-1{
+  position: absolute;
+  border: none !important;
+}
+
+.edit-hack-2{
+  border-left: none !important;
 }
 
 .repeat-enter, .repeat-leave {
