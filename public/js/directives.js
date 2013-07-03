@@ -222,3 +222,14 @@ directives.directive('main', function ($timeout, $log) {
     }
 });
 
+
+directives.directive('employeeEdit', function ($log, DataModel, $timeout) {
+
+    function link($scope, element, attrs) {
+
+    }
+
+    return {
+        link: link
+    };
+});

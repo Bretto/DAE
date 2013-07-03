@@ -59,7 +59,7 @@ controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $time
 
     $scope.onSelectEmployee = function (employee) {
 
-        console.log("The current value of myVariable is ");
+        $log.info('onSelectEmployee');
 
         $scope.originalEmployee = angular.copy(employee);
 
@@ -69,17 +69,27 @@ controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $time
 
     }
 
-    $scope.onSave = function () {
-        resetSelection();
+    $scope.onSave = function (employee) {
+
+        LocalDB.updateEmployee(employee);
+        deSelectSelection();
+    }
+
+    $scope.onExportTable = function () {
+
+        EmployeeService.syncEmployeeList();
+
+//        var changes = db.changeTrackers.get("MyTracker").getChangedRows();
+//        $log.info(changes);
     }
 
     $scope.onCancel = function () {
         angular.extend($scope.currentEmployee, $scope.originalEmployee);
-        resetSelection();
+        deSelectSelection();
 
     }
 
-    function resetSelection() {
+    function deSelectSelection() {
         $scope.currentEmployee.isActive = false;
         $scope.currentEmployee = null;
         $scope.originalEmployee = null;

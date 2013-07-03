@@ -23,7 +23,7 @@ services.factory('DataModel', function ($http, $log, $rootScope, $routeParams, $
             var deferred = $q.defer();
             EmployeeService.getEmployeeList().then(function (employeeList) {
                 LocalDB.setEmployeeList(employeeList);
-                    deferred.resolve(LocalDB.getEmployeeList().data);
+                deferred.resolve(LocalDB.getEmployeeList().data);
             });
             responce = deferred.promise;
 
@@ -75,6 +75,22 @@ services.factory('EmployeeService', function ($http, $log, $rootScope, $routePar
         return deferred.promise;
     }
 
+    employeeService.syncEmployeeList = function () {
+        var deferred = $q.defer();
+
+        var changes = db.changeTrackers.get("MyTracker").getChangedRows();
+
+        var data = JSON.stringify(changes);
+
+        jsonrpc.EmployeeService.changes(function (res, err) {
+            $log.info(res);
+            db.changeTrackers.get("MyTracker").clearChanges();
+        }, data);
+
+
+
+    }
+
 
     return employeeService;
 });
@@ -84,28 +100,30 @@ services.factory('LocalDB', function ($http, $log, $rootScope, $routeParams, $lo
 
     var localDB = {};
 
+    db.catalog.setPersistenceScope(db.SCOPE_LOCAL);
 
+    if (db.catalog.getTable("EMPLOYEES") == null) {
 
-//    db.onready(function() {
+        $log.info('CREATE EMPLOYEES');
 
-        db.catalog.setPersistenceScope(db.SCOPE_LOCAL);
-
-        if(db.catalog.getTable("EMPLOYEES") == null){
-
-            $log.info('CREATE EMPLOYEES');
-
-            db.catalog.createTable({
-                tableName: "EMPLOYEES",
-                columns: [ "employeeId", "firstName", "lastName", "email" ],
-                primaryKey: [ "employeeId" ]});
+        db.catalog.createTable({
+            tableName: "EMPLOYEES",
+            columns: [ "employeeId", "firstName", "lastName", "email" ],
+            primaryKey: [ "employeeId" ]});
 
 //            db.catalog.createTable({
 //                tableName: "EMPLOYEES",
 //                columns: [ "ID", "NAME", "AGE", "EMAIL" ],
 //                primaryKey: [ "ID" ]});
 
-            db.commit();
-        }
+        db.commit();
+    }
+
+    if(db.changeTrackers.get("MyTracker") == null){
+        db.changeTrackers.create("MyTracker", ["EMPLOYEES"]);
+    }
+
+
 
 //        db.catalog.dropTable("EMPLOYEES");
 //        db.commit();
@@ -138,18 +156,25 @@ services.factory('LocalDB', function ($http, $log, $rootScope, $routeParams, $lo
         for (var i = 0; i < employeeList.length; i++) {
             var emp = employeeList[i];
             var newrow = [emp.employeeId, emp.firstName, emp.lastName, emp.email];
-
-            var selectRow = db.queryRowObject("SELECT * FROM EMPLOYEES WHERE EMPLOYEEID="+ emp.employeeId);
-
-            if(selectRow){
-                empTab.updateRow(newrow);
-            }else{
-                empTab.insertRow(newrow);
-            }
-
+            if (empTab.updateRow(newrow) == 0) empTab.insertRow(newrow);
         }
 
         $log.info('SET EMPLOYEES');
+        db.commit();
+        db.changeTrackers.get("MyTracker").clearChanges();
+    }
+
+    localDB.updateEmployee = function (employee) {
+//        db.query("UPDATE EMPLOYEES SET" +
+//            "FIRSTNAME= '" +employee.FIRSTNAME + "', " +
+//            "LASTNAME= '" +employee.LASTNAME + "', " +
+//            "EMAIL= '" +employee.EMAIL + "' " +
+//        " WHERE EMPLOYEEID=" +employee.EMPLOYEEID);
+
+        var empTab = db.catalog.getTable("EMPLOYEES");
+        empTab.updateRow(employee);
+
+        // TODO chec Fail/Success and use ROLL BACK
         db.commit();
     }
 
