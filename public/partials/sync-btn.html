@@ -1,6 +1,7 @@
 <div class="pull-right">
-    <button class="btn btn-success">Sync Success</button>
-    <button class="btn btn-danger">Sync Error</button>
+    <span class="msg-feedback">{{message}}</span>
+    <!--<button class="btn btn-success">Sync Success</button>-->
+    <!--<button class="btn btn-danger">Sync Error</button>-->
     <button ng-disabled="!isEnable()" data-ng-class="{disabled:!isEnable()}"
             class="btn btn-primary" data-ng-click="onSynchronize()">
         <span data-ng-show="isLoading()" class="loader"></span>

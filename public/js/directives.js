@@ -239,9 +239,12 @@ directives.directive('employeeEdit', function ($log, DataModel, $timeout) {
 directives.directive('syncBtn', function ($log, DataModel, $timeout, EmployeeService) {
 
     function link($scope, element, attrs) {
-        $scope.label = 'Synchronize';
         var enable = true;
-        var loading = true;
+        var loading = false;
+        var lableName = 'Synchronize';
+        $scope.label = lableName;
+        $scope.message = '';
+
 
         $scope.isEnable = function(){
             return enable
@@ -251,20 +254,32 @@ directives.directive('syncBtn', function ($log, DataModel, $timeout, EmployeeSer
             return loading
         }
 
+        var showMessage = function(msg){
+            $scope.message = msg;
+            $scope.label = lableName;
+            enable = true;
+            loading = false;
+
+            $timeout(function(){
+                $scope.message = '';
+            },5000);
+        }
+
         $scope.onSynchronize = function () {
             $scope.label = 'Loading...';
             enable = false;
             loading = true;
             EmployeeService.syncEmployeeList().then(function(data){
                 $scope.employeeList = data;
-                $scope.label = 'Synchronize';
-                enable = true;
-                loading = false;
+                showMessage('Synchronization success!');
+            }, function (error) {
+                showMessage('ERROR!');
             });
         }
     }
 
     return {
+        scope:{},
         templateUrl: 'partials/sync-btn.html',
         replace: true,
         link: link

@@ -123,11 +123,12 @@ services.factory('EmployeeService', function ($http, $log, $rootScope, $routePar
                 LocalDB.updateEMPLOYEES(employeeList);
 
             })
-            .catch(function (error) {
-                $log.info('syncEmployeeList ERROR', error);
+            .catch(function (err) {
+                $log.info('syncEmployeeList ERROR', err);
                 $rootScope.$apply(function () {
                     STATES.lockUI = false;
                 });
+                deferred.reject(new Error(err));
             })
             .done(function () {
                 $log.info('syncEmployeeList COMPLETE');
@@ -187,7 +188,6 @@ services.factory('LocalDB', function ($http, $log, $rootScope, $routeParams, $lo
     }
 
     localDB.updateEmployee = function (employee) {
-
 
         var empTab = db.catalog.getTable("EMPLOYEES");
         empTab.updateRow(employee);

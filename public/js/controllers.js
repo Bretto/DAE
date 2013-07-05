@@ -7,6 +7,8 @@ var controllers = angular.module('App.controllers', []);
 
 controllers.controller('AppCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel) {
     $log.info('AppCtrl');
+    $log.info('%cBlue! %cRed!', 'color: blue;', 'color: red;')
+    $log.info('%c YELLOW Backgroun!', 'background-color: yellow;');
 
     $scope.dataModel = DataModel;
 
@@ -41,7 +43,7 @@ controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $time
 
     $scope.dataModel = DataModel;
 
-//   $scope.employeeList = LocalDB.getEmployeeList();
+   $scope.employeeList = LocalDB.getEmployeeList().data;
 
     $scope.onDropTable = function(){
         db.catalog.dropTable("EMPLOYEES");
