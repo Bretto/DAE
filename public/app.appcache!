@@ -1,5 +1,5 @@
 CACHE MANIFEST
-#v 1.0.55
+#v 1.0.5
 
 
 CACHE:
@@ -22,26 +22,34 @@ CACHE:
 /media/alert.ogg
 
 /stylesheets/bootstrap.css
-#/stylesheets/screen.css
+/stylesheets/animations.css
 
-#/lib/jquery-1.9.1.min.js
+/stylesheets/screen.css
+
+/libs/jquery-1.9.1.min.js
+
 /libs/angular-mobile.js
 /libs/angular.min.js
-#/js/app.js
-#/js/services.js
-#/js/controllers.js
-#/js/directives.js
-#/js/filters.js
+/libs/angular-ui-router.js
 
-#/partials/pri-nav.html
-#/partials/requirement.html
-#/partials/framework.html
-#/partials/webservice.html
-#/partials/admin.html
-#/partials/deployment.html
-#/partials/reflection.html
-#/partials/extra.html
-#/partials/prototype.html
+/libs/SequelSphereDB.js
+/libs/jsonrpc.js
+
+/js/app.js
+/js/services.js
+/js/controllers.js
+/js/directives.js
+/js/filters.js
+
+/partials/pri-nav.html
+/partials/requirement.html
+/partials/framework.html
+/partials/webservice.html
+/partials/admin.html
+/partials/deployment.html
+/partials/reflection.html
+/partials/extra.html
+/partials/prototype.html
 
 
 

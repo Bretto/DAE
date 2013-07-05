@@ -29,16 +29,21 @@ html a:active, body a:active {
   text-decoration: none;
 }
 
+/* line 81, ../sass/base.scss */
+button.btn, input[type="submit"].btn {
+  line-height: 25px;
+}
+
 /* iPads (landscape) ----------- */
 /* iPads (portrait) ----------- */
-/* line 156, ../sass/base.scss */
+/* line 160, ../sass/base.scss */
 .toggle-view-btn {
   height: 30px;
   padding: 7px;
   margin: 2px;
   position: relative;
 }
-/* line 166, ../sass/base.scss */
+/* line 170, ../sass/base.scss */
 .toggle-view-btn .icon-bar {
   display: block;
   width: 18px;
@@ -53,7 +58,7 @@ html a:active, body a:active {
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
 }
 
-/* line 182, ../sass/base.scss */
+/* line 186, ../sass/base.scss */
 .ref {
   position: absolute;
   background: rgba(255, 255, 255, 0.2);
@@ -64,7 +69,7 @@ html a:active, body a:active {
   pointer-events: none;
 }
 
-/* line 195, ../sass/base.scss */
+/* line 199, ../sass/base.scss */
 .slide-next-enter, .slide-next-leave {
   -webkit-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
   -moz-transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
@@ -73,49 +78,49 @@ html a:active, body a:active {
   transition: -webkit-transform cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s 0.1s;
 }
 
-/* line 205, ../sass/base.scss */
+/* line 209, ../sass/base.scss */
 .slide-next-enter {
   -webkit-transform: translate3d(100%, 0, 0);
 }
 
-/* line 210, ../sass/base.scss */
+/* line 214, ../sass/base.scss */
 .slide-next-enter-active {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 215, ../sass/base.scss */
+/* line 219, ../sass/base.scss */
 .slide-next-leave {
   -webkit-transform: translate3d(0, 0, 0);
 }
 
-/* line 220, ../sass/base.scss */
+/* line 224, ../sass/base.scss */
 .slide-next-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
 }
 
-/* line 239, ../sass/base.scss */
+/* line 243, ../sass/base.scss */
 input {
   height: 30px !important;
 }
 
-/* line 243, ../sass/base.scss */
+/* line 247, ../sass/base.scss */
 .inline-edit {
   position: absolute;
 }
-/* line 250, ../sass/base.scss */
+/* line 254, ../sass/base.scss */
 .inline-edit .btn {
   height: 20px;
   line-height: 0px;
 }
 
-/* line 257, ../sass/base.scss */
+/* line 261, ../sass/base.scss */
 .employeeIsActive {
   background-color: #34495e !important;
   color: #fff;
   height: 164px;
 }
 
-/* line 263, ../sass/base.scss */
+/* line 267, ../sass/base.scss */
 .employee-list {
   position: relative;
   margin: 0;
@@ -123,18 +128,18 @@ input {
   margin-bottom: 20px;
 }
 
-/* line 274, ../sass/base.scss */
+/* line 278, ../sass/base.scss */
 .employee-wrap {
   background: #fff;
   list-style: none;
   width: 100%;
 }
-/* line 281, ../sass/base.scss */
+/* line 285, ../sass/base.scss */
 .employee-wrap:nth-child(odd) .employee {
   background-color: #f9f9f9;
 }
 
-/* line 286, ../sass/base.scss */
+/* line 290, ../sass/base.scss */
 .employee {
   cursor: hand;
   cursor: pointer;
@@ -145,13 +150,13 @@ input {
   top: 0;
 }
 
-/* line 304, ../sass/base.scss */
+/* line 310, ../sass/base.scss */
 .employee-edit {
   padding: 20px;
   background: #eee;
 }
 
-/* line 309, ../sass/base.scss */
+/* line 315, ../sass/base.scss */
 .employee-edit-cell {
   position: absolute;
   border: none !important;
@@ -160,18 +165,18 @@ input {
   width: 100%;
 }
 
-/* line 320, ../sass/base.scss */
+/* line 326, ../sass/base.scss */
 .edit-hack-1 {
   position: absolute;
   border: none !important;
 }
 
-/* line 325, ../sass/base.scss */
+/* line 331, ../sass/base.scss */
 .edit-hack-2 {
   border-left: none !important;
 }
 
-/* line 329, ../sass/base.scss */
+/* line 335, ../sass/base.scss */
 .repeat-enter, .repeat-leave {
   -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
   -moz-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
@@ -180,22 +185,51 @@ input {
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
 }
 
-/* line 337, ../sass/base.scss */
+/* line 343, ../sass/base.scss */
 .repeat-enter {
   opacity: 0;
 }
 
-/* line 341, ../sass/base.scss */
+/* line 347, ../sass/base.scss */
 .repeat-enter.repeat-enter-active {
   opacity: 1;
 }
 
-/* line 345, ../sass/base.scss */
+/* line 351, ../sass/base.scss */
 .repeat-leave {
   opacity: 1;
 }
 
-/* line 349, ../sass/base.scss */
+/* line 355, ../sass/base.scss */
 .repeat-leave.repeat-leave-active {
   opacity: 0;
+}
+
+/* line 360, ../sass/base.scss */
+.message-wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* line 369, ../sass/base.scss */
+.message {
+  margin: auto;
+  margin-top: 30%;
+  width: 250px;
+  height: 250px;
+  background: black;
+}
+
+/* line 377, ../sass/base.scss */
+.loader {
+  margin-left: 10px;
+  float: right;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  background: url(../img/spinner.gif) center center no-repeat;
 }

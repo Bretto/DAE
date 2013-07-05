@@ -78,6 +78,10 @@ html, body {
   }
 }
 
+button.btn, input[type="submit"].btn {
+  line-height: 25px;
+}
+
 
 
 /* iPads (landscape) ----------- */
@@ -285,6 +289,8 @@ input{
 
 .employee{
 
+  //@include transition(background-color cubic-bezier(0.250, 0.460, 0.450, 0.940) .3s);
+
   cursor: hand;
   cursor: pointer;
 
@@ -348,4 +354,31 @@ input{
 
 .repeat-leave.repeat-leave-active {
   opacity: 0;
+}
+
+
+.message-wrap{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(#000,.5);
+}
+
+.message{
+  margin: auto;
+  margin-top: 30%;
+  width: 250px;
+  height: 250px;
+  background: rgba(#000,1);
+}
+
+.loader{
+  margin-left: 10px;
+  float: right;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  background: url(../img/spinner.gif) center center no-repeat;
 }

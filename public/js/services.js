@@ -2,72 +2,53 @@
 
 var services = angular.module('App.services', []);
 
-services.factory('DataModel', function ($http, $log, $rootScope, $routeParams, $location, $stateParams, EmployeeService, LocalDB, $q) {
+services.value('STATES', {
+    online: true,
+    lockUI: false
+});
+
+services.factory('DataModel', function ($http, $log, $rootScope, $routeParams, $location, $stateParams, EmployeeService, LocalDB, $q, STATES) {
 
     var dataModel = {};
     dataModel.toggleViewOpen = true;
     dataModel.sideNav = [];
     dataModel.currentPage = {};
-    dataModel.isOnline = true;
+
+
+    dataModel.isOnline = function () {
+        return STATES.online;
+    }
+
+    dataModel.isLockUI = function () {
+        return STATES.lockUI;
+    }
 
     dataModel.isPriNavActive = function (value) {
         return ( value === $stateParams.navId ) ? 'active' : '';
-    }
-
-    dataModel.getEmployeeList = function () {
-
-        var responce
-
-        if (dataModel.isOnline) {
-
-            var deferred = $q.defer();
-            EmployeeService.getEmployeeList().then(function (employeeList) {
-                LocalDB.setEmployeeList(employeeList);
-                deferred.resolve(LocalDB.getEmployeeList().data);
-            });
-            responce = deferred.promise;
-
-        } else {
-
-            responce = LocalDB.getEmployeeList().data;
-        }
-
-        return responce
     }
 
     return dataModel;
 });
 
 
-services.factory('EmployeeService', function ($http, $log, $rootScope, $routeParams, $location, $stateParams, $q, $timeout) {
+services.factory('EmployeeService', function ($http, $log, $rootScope, $routeParams, $location, $stateParams, $q, $timeout, STATES, LocalDB) {
 
-    try {
-        var jsonrpc = new JSONRpcClient("http://192.168.1.140:7101/HRSCA-HRSCA-context-root/JSONServiceProvider");
-    } catch (e) {
-        $log.info('jsonrpc fail to connect');
-    }
+    // Connect to the JSONRpcClient and set the online STATES flags
 
-    var employeeService = {};
+    var getJsonRpc = function () {
 
-    employeeService.getEmployeeList = function () {
-        var deferred = $q.defer();
+        var deferred = Q.defer();
+        new JSONRpcClient("http://192.168.1.140:7101/HRSCA-HRSCA-context-root/JSONServiceProvider", function (JSONRpcClient, res, err) {
 
-//        $timeout(function () {
-//            $.getJSON("data.json", function (json) {
-//                $rootScope.$apply(function () {
-//                    deferred.resolve(json);
-//                });
-//            });
-//        }, 100);
-
-        jsonrpc.EmployeeService.getEmployeesEOList(function (res, err) {
             $rootScope.$apply(function () {
                 if (err) {
-                    $log.info('getEmployeesEOList FAIL', err);
-                    deferred.reject({error: err})
+                    $log.info('jsonrpc fail to connect');
+                    STATES.online = false;
+                    deferred.reject(new Error(err))
                 } else {
-                    $log.info('getEmployeesEOList SUCCESS', res);
-                    deferred.resolve(res.list);
+                    $log.info('jsonrpc connect');
+                    STATES.online = true;
+                    deferred.resolve(JSONRpcClient);
                 }
             })
         });
@@ -75,24 +56,95 @@ services.factory('EmployeeService', function ($http, $log, $rootScope, $routePar
         return deferred.promise;
     }
 
-    employeeService.syncEmployeeList = function () {
-        var deferred = $q.defer();
 
-        var changes = db.changeTrackers.get("MyTracker").getChangedRows();
+    // Get the employees table content
+    var getEmployeeList = function (jsonrpc) {
+        $log.info('getEmployeeList');
 
-        var data = JSON.stringify(changes);
+        var deferred = Q.defer();
+        jsonrpc.EmployeeService.getEmployeesEOList(function (res, err) {
+            if (err) {
+                $log.info('getEmployeesEOList ERROR', err);
+                deferred.reject(new Error(err))
+            } else {
+                $log.info('getEmployeesEOList SUCCESS', res);
+                deferred.resolve(res.list);
+            }
+        });
 
-        jsonrpc.EmployeeService.changes(function (res, err) {
-            $log.info(res);
-            db.changeTrackers.get("MyTracker").clearChanges();
-        }, data);
-
-
-
+        return deferred.promise;
     }
 
 
-    return employeeService;
+    // Sends the EmployeesTracker changes to the WS
+    // and clear the EmployeesTracker changes
+    var updateEmployeeList = function (jsonrpc) {
+        $log.info('updateEmployeeList');
+
+        var deferred = Q.defer();
+        var changes = db.changeTrackers.get("EmployeesTracker").getChangedRows();
+        $log.info('EmployeesTracker Changes:', changes);
+        var data = JSON.stringify(changes);
+
+        jsonrpc.EmployeeService.changes(function (res, err) {
+
+            if (err) {
+                $log.info('updateEmployeeList ERROR', err);
+                deferred.reject(new Error(err));
+            } else {
+                $log.info('updateEmployeeList SUCCESS: ', res);
+                db.changeTrackers.get("EmployeesTracker").clearChanges();
+                deferred.resolve(jsonrpc);
+            }
+
+        }, data);
+        return deferred.promise;
+    }
+
+
+    var syncEmployeeList = function () {
+        $log.info('syncEmployeeList');
+
+        //TODO check if the connection to the WS is available
+        //TODO rename isOnline to isWSAvailable
+
+        STATES.lockUI = true;
+
+        var deferred = $q.defer();
+
+        Q.fcall(getJsonRpc)
+            .then(function (jsonrpc) {
+                return updateEmployeeList(jsonrpc)
+            })
+            .then(function (jsonrpc) {
+                return getEmployeeList(jsonrpc);
+            })
+            .then(function (employeeList) {
+                LocalDB.updateEMPLOYEES(employeeList);
+
+            })
+            .catch(function (error) {
+                $log.info('syncEmployeeList ERROR', error);
+                $rootScope.$apply(function () {
+                    STATES.lockUI = false;
+                });
+            })
+            .done(function () {
+                $log.info('syncEmployeeList COMPLETE');
+
+                $rootScope.$apply(function () {
+                    deferred.resolve(LocalDB.getEmployeeList().data);
+                    STATES.lockUI = false;
+                });
+            });
+
+        return deferred.promise;
+    }
+
+
+    return      {
+        syncEmployeeList: syncEmployeeList
+    };
 });
 
 
@@ -111,46 +163,16 @@ services.factory('LocalDB', function ($http, $log, $rootScope, $routeParams, $lo
             columns: [ "employeeId", "firstName", "lastName", "email" ],
             primaryKey: [ "employeeId" ]});
 
-//            db.catalog.createTable({
-//                tableName: "EMPLOYEES",
-//                columns: [ "ID", "NAME", "AGE", "EMAIL" ],
-//                primaryKey: [ "ID" ]});
-
         db.commit();
     }
 
-    if(db.changeTrackers.get("MyTracker") == null){
-        db.changeTrackers.create("MyTracker", ["EMPLOYEES"]);
+    if (db.changeTrackers.get("EmployeesTracker") == null) {
+        db.changeTrackers.create("EmployeesTracker", ["EMPLOYEES"]);
     }
 
-
-
-//        db.catalog.dropTable("EMPLOYEES");
-//        db.commit();
-//        $rootScope.$emit('dbReady');
-//    });
-
-//    localDB.setEmployeeList = function (employeeList) {
-//
-//        var empTab = db.catalog.getTable("EMPLOYEES");
-//        for (var i = 0; i < employeeList.length; i++) {
-//            var emp = employeeList[i];
-//            var newrow = [i, emp.name, emp.age, emp.email];
-//
-//            var selectRow = db.queryObjects("SELECT * FROM EMPLOYEES WHERE ID="+ i);
-//
-//            if(selectRow){
-//                empTab.updateRow(newrow);
-//            }else{
-//                empTab.insertRow(newrow);
-//            }
-//        }
-//
-//        $log.info('SET EMPLOYEES');
-//        db.commit();
-//    }
-
-    localDB.setEmployeeList = function (employeeList) {
+    // Update EMPLOYEES table and clear EmployeesTracker changes
+    localDB.updateEMPLOYEES = function (employeeList) {
+        $log.info('updateEMPLOYEES');
 
         var empTab = db.catalog.getTable("EMPLOYEES");
         for (var i = 0; i < employeeList.length; i++) {
@@ -159,17 +181,13 @@ services.factory('LocalDB', function ($http, $log, $rootScope, $routeParams, $lo
             if (empTab.updateRow(newrow) == 0) empTab.insertRow(newrow);
         }
 
-        $log.info('SET EMPLOYEES');
         db.commit();
-        db.changeTrackers.get("MyTracker").clearChanges();
+        db.changeTrackers.get("EmployeesTracker").clearChanges();
+        $log.info('EmployeesTracker CLEAR');
     }
 
     localDB.updateEmployee = function (employee) {
-//        db.query("UPDATE EMPLOYEES SET" +
-//            "FIRSTNAME= '" +employee.FIRSTNAME + "', " +
-//            "LASTNAME= '" +employee.LASTNAME + "', " +
-//            "EMAIL= '" +employee.EMAIL + "' " +
-//        " WHERE EMPLOYEEID=" +employee.EMPLOYEEID);
+
 
         var empTab = db.catalog.getTable("EMPLOYEES");
         empTab.updateRow(employee);
@@ -178,30 +196,20 @@ services.factory('LocalDB', function ($http, $log, $rootScope, $routeParams, $lo
         db.commit();
     }
 
-//    localDB.getEmployeeList = function (employeeList) {
-//        var deferred = $q.defer();
-//        $('body').sqlExec({
-//            op: "queryObjects",
-//            sql: "SELECT * FROM EMPLOYEES",
-//            success: function (selected, results, options) {
-//                $rootScope.$apply(function () {
-//                    $log.info('employeeList SUCCESS', results.data);
-//                    deferred.resolve(results.data);
-//                });
-//            },
-//            error: function (err, options) {
-//
-//            }
-//        });
-//        return deferred.promise;
-//    }
-
     localDB.getEmployeeList = function () {
         return db.queryObjects("SELECT * FROM EMPLOYEES");
     }
 
     return localDB;
 });
+
+//        $timeout(function () {
+//            $.getJSON("data.json", function (json) {
+//                $rootScope.$apply(function () {
+//                    deferred.resolve(json);
+//                });
+//            });
+//        }, 100);
 
 
 

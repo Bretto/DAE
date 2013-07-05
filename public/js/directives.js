@@ -233,3 +233,40 @@ directives.directive('employeeEdit', function ($log, DataModel, $timeout) {
         link: link
     };
 });
+
+
+
+directives.directive('syncBtn', function ($log, DataModel, $timeout, EmployeeService) {
+
+    function link($scope, element, attrs) {
+        $scope.label = 'Synchronize';
+        var enable = true;
+        var loading = true;
+
+        $scope.isEnable = function(){
+            return enable
+        }
+
+        $scope.isLoading = function(){
+            return loading
+        }
+
+        $scope.onSynchronize = function () {
+            $scope.label = 'Loading...';
+            enable = false;
+            loading = true;
+            EmployeeService.syncEmployeeList().then(function(data){
+                $scope.employeeList = data;
+                $scope.label = 'Synchronize';
+                enable = true;
+                loading = false;
+            });
+        }
+    }
+
+    return {
+        templateUrl: 'partials/sync-btn.html',
+        replace: true,
+        link: link
+    };
+});

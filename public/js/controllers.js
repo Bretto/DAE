@@ -26,7 +26,6 @@ controllers.controller('PrimaryNavCtrl', function ($scope, $rootScope, $routePar
 //
 //    })
 
-
     $scope.dataModel = DataModel;
 
 });
@@ -36,20 +35,13 @@ controllers.controller('PageCtrl', function ($scope, $rootScope, $timeout, $log,
 
 });
 
-//controllers.controller('EmployeeEdit', function ($scope, $rootScope, $timeout, $log, $http, DataModel) {
-//    $('input').bind('focus',function() {
-//        $log.info('test');
-//        $('.main').css('position','fixed');
-//        $('.navigation').css('position','fixed');
-//    });
-//});
 
-
-controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel, EmployeeService, LocalDB) {
+controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $timeout, $log, $http, DataModel, EmployeeService, LocalDB, STATES) {
     $log.info('SequelSphereDBCtrl');
 
+    $scope.dataModel = DataModel;
 
-    $scope.employeeList = DataModel.getEmployeeList();
+//   $scope.employeeList = LocalDB.getEmployeeList();
 
     $scope.onDropTable = function(){
         db.catalog.dropTable("EMPLOYEES");
@@ -75,13 +67,7 @@ controllers.controller('SequelSphereDBCtrl', function ($scope, $rootScope, $time
         deSelectSelection();
     }
 
-    $scope.onExportTable = function () {
 
-        EmployeeService.syncEmployeeList();
-
-//        var changes = db.changeTrackers.get("MyTracker").getChangedRows();
-//        $log.info(changes);
-    }
 
     $scope.onCancel = function () {
         angular.extend($scope.currentEmployee, $scope.originalEmployee);

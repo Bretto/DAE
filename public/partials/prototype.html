@@ -1,12 +1,13 @@
 <div class="page" page>
     <div class="title">
-        <h1>Prototype</h1>
+        <h1>Prototype 2</h1>
     </div>
     <div class="content" data-ng-controller="SequelSphereDBCtrl">
         <div class="well">
-            <input ng-model="search.text">
-            <button class="pull-right btn btn-primary" data-ng-click="onDropTable()">Drop table</button>
-            <button class="pull-right btn btn-primary" data-ng-click="onExportTable()">Export table</button>
+            <input ng-model="search.text" class="search-query">
+            <!--<button class="pull-right btn btn-primary" data-ng-click="onDropTable()">Drop table</button>-->
+            <div sync-btn></div>
+
         </div>
 
         <div >
@@ -52,6 +53,7 @@
             <!--</li>-->
             <!--</ul>-->
 
+
             <table class="table table-bordered employee-list">
                 <thead>
                 <tr>
@@ -88,13 +90,14 @@
                                     <!--</div>-->
                                     <button type="submit" class="btn" data-ng-click="onSave(currentEmployee)">Save</button>
                                     <button type="submit" class="btn" data-ng-click="onCancel()">Cancel</button>
+                                    <button type="submit" class="btn" data-ng-click="onDelete()">Delete</button>
                                 </form>
                             </div>
                         </div>
                     </td>
 
 
-                    <td class="edit-hack-2" data-ng-click="onSelectEmployee(employee)">{{$index + 1}}</td>
+                    <td class="edit-hack-2" data-ng-click="onSelectEmployee(employee)">{{employee.EMPLOYEEID}}</td>
                     <td data-ng-click="onSelectEmployee(employee)">{{employee.FIRSTNAME}}</td>
                     <td data-ng-click="onSelectEmployee(employee)">{{employee.LASTNAME}}</td>
                     <td data-ng-click="onSelectEmployee(employee)">{{employee.EMAIL}}</td>
