@@ -38,7 +38,12 @@
                 <h1>Main View</h1>
             </div>
         </header>
+        <!---->
         <div ui-view="page" class="content" data-ng-animate="{enter: 'pt-page-rotateSlideIn', leave: 'pt-page-rotateSlideOut'}" data-ng-controller="PageCtrl"></div>
+    </section>
+    <section class="logger-wrap">
+        <div data-ng-show="isOpen" class="logger"></div>
+        <button data-ng-click="isOpen=!isOpen" class="btn btn-inverse logger-btn"><i class="icon-ok icon-white"></i></button>
     </section>
     <!--<div class="message-wrap" data-ng-show="dataModel.isLockUI()">-->
         <!--<div class="message"></div>-->

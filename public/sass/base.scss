@@ -386,3 +386,58 @@ input{
   display: inline-block;
   background: url(../img/spinner.gif) center center no-repeat;
 }
+
+
+.logger-wrap{
+  
+
+  .logger-btn{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .logger{
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    background: rgba(#000,.5);
+
+
+    .log{
+      background: rgba(blue,.5);
+    }
+
+    .info{
+      background: rgba(green,.5);
+    }
+
+    .debug{
+      background: rgba(black,.5);
+    }
+
+    .warn{
+      background: rgba(orange,.5);
+    }
+
+    .error{
+      background: rgba(red,.5);
+    }
+
+
+    div{
+      padding: 2px 10px;
+      color: #eee;
+      border-bottom: rgba(white,.2) solid 1px;
+    }
+
+  }
+
+}
+

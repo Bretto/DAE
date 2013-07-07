@@ -1,23 +1,56 @@
 'use strict';
 
-
-//angular.module('App', ['App.controllers', 'App.filters', 'App.services', 'App.directives', 'ngMobile']).
-//    config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-//        $routeProvider.
-//            when('/nav/requirement/page/requirement', {templateUrl:'partials/page1.html'}).
-//            when('/nav/framework/page/framework', {templateUrl:'partials/page2.html'}).
-//            when('/extra', {templateUrl:'partials/extra.html'}).
-//            when('/reflection', {templateUrl:'partials/reflection.html'}).
-//            when('/deployment', {templateUrl:'partials/deployment.html', controller:'PageCtrl'}).
-//            when('/prototype', {templateUrl:'partials/prototype.html'}).
-//            when('/admin', {templateUrl:'partials/admin.html'}).
-//            when('/webservice', {templateUrl:'partials/webservice.html'}).
-//            otherwise({redirectTo:'/requirement'});
-//        $locationProvider.html5Mode(false);
-//    }]);
-
 angular.module('App', ['App.controllers', 'App.filters', 'App.services', 'App.directives', 'ngMobile', 'ui.compat']).
-    config(function ($stateProvider, $urlRouterProvider, $routeProvider, $locationProvider) {
+    config(function ($stateProvider, $urlRouterProvider, $routeProvider, $locationProvider, $provide) {
+
+        $provide.decorator('$log', function($delegate) {
+            var _log = $delegate.log;
+            var _info = $delegate.info;
+            var _debug = $delegate.debug;
+            var _warn = $delegate.warn;
+            var _error = $delegate.error;
+
+            $delegate.zLog = function(msg){
+                _log.apply(null,arguments)
+                addLog(arguments, 'log');
+            };
+
+            $delegate.zInfo = function(msg){
+                _info.apply(null,arguments)
+                addLog(arguments, 'info');
+            };
+
+            $delegate.zDebug = function(msg){
+                _debug.apply(null,arguments)
+                addLog(arguments, 'debug');
+            };
+
+            $delegate.zWarn = function(msg){
+                _warn.apply(null,arguments)
+                addLog(arguments, 'warn');
+            };
+
+            $delegate.zError = function(msg){
+                _error.apply(null,arguments)
+                addLog(arguments, 'error');
+            };
+
+            function addLog(_arguments,type){
+                var args = Array.prototype.slice.call(_arguments);
+                angular.forEach(args, function(value, key){
+                   if(angular.isObject(value)){
+                       args[key] = JSON.stringify(value);
+                   }
+                });
+
+                var msg = args + '';
+                $('<div/>', {
+                    text: msg
+                }).addClass(type).appendTo('.logger');
+            }
+
+            return $delegate;
+        });
 
         $stateProvider
             .state('nav', {

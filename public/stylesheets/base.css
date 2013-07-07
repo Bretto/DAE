@@ -238,3 +238,49 @@ input {
   display: inline-block;
   background: url(../img/spinner.gif) center center no-repeat;
 }
+
+/* line 394, ../sass/base.scss */
+.logger-wrap .logger-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+/* line 400, ../sass/base.scss */
+.logger-wrap .logger {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+/* line 413, ../sass/base.scss */
+.logger-wrap .logger .log {
+  background: rgba(0, 0, 255, 0.5);
+}
+/* line 417, ../sass/base.scss */
+.logger-wrap .logger .info {
+  background: rgba(0, 128, 0, 0.5);
+}
+/* line 421, ../sass/base.scss */
+.logger-wrap .logger .debug {
+  background: rgba(0, 0, 0, 0.5);
+}
+/* line 425, ../sass/base.scss */
+.logger-wrap .logger .warn {
+  background: rgba(255, 165, 0, 0.5);
+}
+/* line 429, ../sass/base.scss */
+.logger-wrap .logger .error {
+  background: rgba(255, 0, 0, 0.5);
+}
+/* line 434, ../sass/base.scss */
+.logger-wrap .logger div {
+  padding: 2px 10px;
+  color: #eee;
+  border-bottom: rgba(255, 255, 255, 0.2) solid 1px;
+}
